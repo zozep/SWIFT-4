@@ -46,7 +46,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUH-J3-7i6">
-                                        <rect key="frame" x="83" y="504" width="208" height="47"/>
+                                        <rect key="frame" x="150" y="504" width="74" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="39"/>
                                         <color key="textColor" red="0.97314550229999996" green="1" blue="0.97711279760000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
