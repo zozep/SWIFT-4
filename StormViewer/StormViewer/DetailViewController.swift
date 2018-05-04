@@ -17,6 +17,9 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //We don’t need to unwrap selectedImage here because both selectedImage and title are optional strings – we’re assigning one optional string to another. title is optional because it’s nil by default: view controllers have no title, thus showing no text in the navigation bar.
+        title = selectedImage
+        
         //load images
         if let imageToLoad = selectedImage {
             imageView.image = UIImage(named: imageToLoad)
@@ -32,6 +35,4 @@ class DetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.hidesBarsOnTap = false
     }
-
-
 }

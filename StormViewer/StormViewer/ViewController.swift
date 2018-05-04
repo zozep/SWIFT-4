@@ -11,10 +11,13 @@ import UIKit
 class ViewController: UITableViewController {
 
     var pictures = [String]()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //automatically used for the “Back” button, so that users know what they are going back to
+        title = "Storm Viewer"
         
         // data type that lets us work with the filesystem
         let fm = FileManager.default
@@ -29,7 +32,6 @@ class ViewController: UITableViewController {
                 pictures.append(item)
             }
         }
-        print(pictures)
     }
     
     
@@ -44,8 +46,7 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
         
-        //give the text label of the cell the same text as a picture in our array
-        //do this only if there is an actual text label there, or do nothing otherwise
+        //give the text label of the cell the same text as a picture in our array do this only if there is an actual text label there
         cell.textLabel?.text = pictures[indexPath.row]
         
         //this method expects a table view cell to be returned, so we need to send back the one we created
@@ -53,7 +54,6 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         //try loading the "Detail" view controller and typecasting it to be DetailViewController
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             
@@ -63,11 +63,7 @@ class ViewController: UITableViewController {
             //push it onto the navigation controller
             navigationController?.pushViewController(vc, animated: true)
         }
-        
     }
     
-
-    
-
 }
 
