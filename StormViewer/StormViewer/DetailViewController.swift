@@ -18,7 +18,9 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         //load images
-
+        if let imageToLoad = selectedImage {
+            imageView.image = UIImage(named: imageToLoad)
+        }
     }
     
     
