@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C2F3F7A209C034100750E06 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2F3F79209C034100750E06 /* DetailViewController.swift */; };
 		7C973DEF209BEF1200364A30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C973DEE209BEF1200364A30 /* AppDelegate.swift */; };
 		7C973DF1209BEF1200364A30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C973DF0209BEF1200364A30 /* ViewController.swift */; };
 		7C973DF4209BEF1200364A30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C973DF2209BEF1200364A30 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C2F3F79209C034100750E06 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7C973DEB209BEF1200364A30 /* StormViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StormViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C973DEE209BEF1200364A30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C973DF0209BEF1200364A30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				7C973DEE209BEF1200364A30 /* AppDelegate.swift */,
 				7C973DF0209BEF1200364A30 /* ViewController.swift */,
 				7C973DF2209BEF1200364A30 /* Main.storyboard */,
+				7C2F3F79209C034100750E06 /* DetailViewController.swift */,
 				7C973DF5209BEF1300364A30 /* Assets.xcassets */,
 				7C973DF7209BEF1300364A30 /* LaunchScreen.storyboard */,
 				7C973DFA209BEF1300364A30 /* Info.plist */,
@@ -175,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C2F3F7A209C034100750E06 /* DetailViewController.swift in Sources */,
 				7C973DF1209BEF1200364A30 /* ViewController.swift in Sources */,
 				7C973DEF209BEF1200364A30 /* AppDelegate.swift in Sources */,
 			);
