@@ -10,16 +10,28 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var pictures = [String]()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // data type that lets us work with the filesystem
+        let fm = FileManager.default
+        
+        // bundle = directory containing compiled program and all assets
+        let path = Bundle.main.resourcePath!
+        let items = try! fm.contentsOfDirectory(atPath: path)
+        
+        for item in items {
+            if item.hasPrefix("nssl") {
+                //add to the pictures array all the files we match inside our loop.
+                
+            }
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
 
 }
 
