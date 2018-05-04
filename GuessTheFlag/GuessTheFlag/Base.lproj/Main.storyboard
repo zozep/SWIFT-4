@@ -18,29 +18,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJX-O5-8Qm">
-                                <rect key="frame" x="87" y="80" width="200" height="100"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJX-O5-8Qm">
+                                <rect key="frame" x="87" y="135" width="200" height="100"/>
+                                <state key="normal" image="us"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRY-Sd-HUb">
-                                <rect key="frame" x="87" y="234" width="200" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRY-Sd-HUb">
+                                <rect key="frame" x="87" y="289" width="200" height="100"/>
+                                <state key="normal" image="us"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfz-oP-HAN">
-                                <rect key="frame" x="87" y="371" width="200" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfz-oP-HAN">
+                                <rect key="frame" x="87" y="439" width="200" height="100"/>
+                                <state key="normal" image="us"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="dfz-oP-HAN" firstAttribute="centerX" secondItem="LRY-Sd-HUb" secondAttribute="centerX" id="3eg-Im-YTX"/>
                             <constraint firstItem="VJX-O5-8Qm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8cm-IZ-k4h"/>
-                            <constraint firstItem="VJX-O5-8Qm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="KDM-ZV-az6"/>
+                            <constraint firstItem="VJX-O5-8Qm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="71" id="KDM-ZV-az6"/>
+                            <constraint firstItem="LRY-Sd-HUb" firstAttribute="top" secondItem="VJX-O5-8Qm" secondAttribute="bottom" constant="54" id="UcH-rs-2Fw"/>
+                            <constraint firstItem="dfz-oP-HAN" firstAttribute="top" secondItem="LRY-Sd-HUb" secondAttribute="bottom" constant="50" id="rmA-A7-pcJ"/>
+                            <constraint firstItem="LRY-Sd-HUb" firstAttribute="centerX" secondItem="VJX-O5-8Qm" secondAttribute="centerX" id="rqk-VD-0Tl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="gYC-fp-fzz"/>
+                    <connections>
+                        <outlet property="button1" destination="VJX-O5-8Qm" id="8wL-eQ-Id0"/>
+                        <outlet property="button2" destination="LRY-Sd-HUb" id="FDB-Pi-IYw"/>
+                        <outlet property="button3" destination="dfz-oP-HAN" id="1qA-iB-0pE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,4 +72,7 @@
             <point key="canvasLocation" x="117.59999999999999" y="776.76161919040487"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="us" width="200" height="100"/>
+    </resources>
 </document>
