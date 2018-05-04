@@ -58,7 +58,6 @@
 		7C973DE2209BEF1200364A30 = {
 			isa = PBXGroup;
 			children = (
-				7C973E00209BEFD900364A30 /* Content */,
 				7C973DED209BEF1200364A30 /* StormViewer */,
 				7C973DEC209BEF1200364A30 /* Products */,
 			);
@@ -81,13 +80,6 @@
 				7C973DF5209BEF1300364A30 /* Assets.xcassets */,
 				7C973DF7209BEF1300364A30 /* LaunchScreen.storyboard */,
 				7C973DFA209BEF1300364A30 /* Info.plist */,
-			);
-			path = StormViewer;
-			sourceTree = "<group>";
-		};
-		7C973E00209BEFD900364A30 /* Content */ = {
-			isa = PBXGroup;
-			children = (
 				7C973E01209BEFD900364A30 /* nssl0049.jpg */,
 				7C973E02209BEFD900364A30 /* nssl0046.jpg */,
 				7C973E03209BEFD900364A30 /* nssl0091.jpg */,
@@ -99,7 +91,7 @@
 				7C973E09209BEFD900364A30 /* nssl0033.jpg */,
 				7C973E0A209BEFD900364A30 /* nssl0034.jpg */,
 			);
-			path = Content;
+			path = StormViewer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

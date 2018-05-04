@@ -32,6 +32,28 @@ class ViewController: UITableViewController {
         
         print(pictures)
     }
+    
+    
+    //:TABLEVIEW
+    
+    //there be as many table rows as there are pictures
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pictures.count
+    }
+    
+    //specify what each row should look like
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
+        
+        //give the text label of the cell the same text as a picture in our array
+        //do this only if there is an actual text label there, or do nothing otherwise
+        cell.textLabel?.text = pictures[indexPath.row]
+        
+        //this method expects a table view cell to be returned, so we need to send back the one we created
+        return cell
+    }
+    
+    
 
     
 
