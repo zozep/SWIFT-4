@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
     var pictures = [String]()
 
@@ -26,9 +26,11 @@ class ViewController: UIViewController {
         for item in items {
             if item.hasPrefix("nssl") {
                 //add to the pictures array all the files we match inside our loop.
-                
+                pictures.append(item)
             }
         }
+        
+        print(pictures)
     }
 
     
