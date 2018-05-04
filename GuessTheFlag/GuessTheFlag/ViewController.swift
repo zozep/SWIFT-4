@@ -44,5 +44,16 @@ class ViewController: UIViewController {
         title = countries[correctAnswer].uppercased()
     }
     
+    //@IBOutlet is a way of connecting code to storyboard layouts, and @IBAction is a way of making storyboard layouts trigger code.
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        if sender.tag == correctAnswer {
+            title = "Correct"
+            score += 1
+        } else {
+            title = "Wrong"
+            score -= 1
+        }
+    }
+    
     
 }
