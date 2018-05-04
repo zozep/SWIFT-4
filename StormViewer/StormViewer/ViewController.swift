@@ -29,12 +29,11 @@ class ViewController: UITableViewController {
                 pictures.append(item)
             }
         }
-        
         print(pictures)
     }
     
     
-    //:TABLEVIEW
+    //MARK: - Tableview functions
     
     //there be as many table rows as there are pictures
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,6 +52,19 @@ class ViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //try loading the "Detail" view controller and typecasting it to be DetailViewController
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+            
+            //success! Set its selectedImage property
+            vc.selectedImage = pictures[indexPath.row]
+            
+            //push it onto the navigation controller
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
     
 
     
