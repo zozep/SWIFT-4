@@ -19,7 +19,8 @@ class DetailViewController: UIViewController {
         
         //We don’t need to unwrap selectedImage here because both selectedImage and title are optional strings – we’re assigning one optional string to another. title is optional because it’s nil by default: view controllers have no title, thus showing no text in the navigation bar.
         title = selectedImage
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+
         //load images
         if let imageToLoad = selectedImage {
             imageView.image = UIImage(named: imageToLoad)
@@ -34,5 +35,12 @@ class DetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.hidesBarsOnTap = false
+    }
+    
+   @objc func shareTapped() {
+        let vc = UIActivityViewController(activityItems: [imageView.image!], applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
+
     }
 }
