@@ -12,6 +12,7 @@
 		7CC59DE920A153D0009C7BC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CC59DE720A153D0009C7BC0 /* Main.storyboard */; };
 		7CC59DEB20A153D1009C7BC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC59DEA20A153D1009C7BC0 /* Assets.xcassets */; };
 		7CC59DEE20A153D1009C7BC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CC59DEC20A153D1009C7BC0 /* LaunchScreen.storyboard */; };
+		7CC59DF620A163D2009C7BC0 /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7CC59DF520A163D2009C7BC0 /* start.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		7CC59DEA20A153D1009C7BC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CC59DED20A153D1009C7BC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CC59DEF20A153D1009C7BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CC59DF520A163D2009C7BC0 /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		7CC59DE220A153D0009C7BC0 /* WordScramble */ = {
 			isa = PBXGroup;
 			children = (
+				7CC59DF520A163D2009C7BC0 /* start.txt */,
 				7CC59DE320A153D0009C7BC0 /* AppDelegate.swift */,
 				7CC59DE520A153D0009C7BC0 /* ViewController.swift */,
 				7CC59DE720A153D0009C7BC0 /* Main.storyboard */,
@@ -123,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CC59DEE20A153D1009C7BC0 /* LaunchScreen.storyboard in Resources */,
+				7CC59DF620A163D2009C7BC0 /* start.txt in Resources */,
 				7CC59DEB20A153D1009C7BC0 /* Assets.xcassets in Resources */,
 				7CC59DE920A153D0009C7BC0 /* Main.storyboard in Resources */,
 			);
