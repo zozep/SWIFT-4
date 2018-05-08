@@ -85,15 +85,33 @@ class ViewController: UITableViewController {
     }
     
     func isPossible(word: String) -> Bool {
+        var tempWord = title!.lowercased()
+        
+        for letter in word {
+            //If it does exist, we remove the letter from the start word, then continue the loop
+            //range(of:) returns an optional position of where the item was found
+            if let pos = tempWord.range(of: String(letter)) {
+                tempWord.remove(at: pos.lowerBound)
+            } else {
+                return false
+            }
+        }
         return true
     }
     
     func isOriginal(word: String) -> Bool {
-        return true
+        return !usedWords.contains(word)
     }
     
     func isReal(word: String) -> Bool {
-        return true
+        
+        //iOS class that is designed to spot spelling errors
+        let checker = UITextChecker()
+        let range = NSMakeRange(0, word.utf16.count)
+        let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
+        
+        //== returns true or false depending on whether misspelledRange.location is equal to NSNotFound
+        return misspelledRange.location == NSNotFound
     }
     
 }
