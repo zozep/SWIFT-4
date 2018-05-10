@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,15 +19,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJX-O5-8Qm">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJX-O5-8Qm">
                                 <rect key="frame" x="87" y="135" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VJX-O5-8Qm" secondAttribute="height" multiplier="2:1" id="82E-5r-gsN"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oKd-wh-LfJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRY-Sd-HUb">
+                            <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRY-Sd-HUb">
                                 <rect key="frame" x="87" y="289" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LRY-Sd-HUb" secondAttribute="height" multiplier="2:1" id="6x0-TJ-4QK"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bq3-on-CEz"/>
@@ -34,6 +41,9 @@
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfz-oP-HAN">
                                 <rect key="frame" x="87" y="439" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dfz-oP-HAN" secondAttribute="height" multiplier="2:1" id="HES-vl-xng"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ydd-wP-mEL"/>
@@ -42,12 +52,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="LRY-Sd-HUb" firstAttribute="height" secondItem="VJX-O5-8Qm" secondAttribute="height" id="3TZ-nk-sb7"/>
                             <constraint firstItem="dfz-oP-HAN" firstAttribute="centerX" secondItem="LRY-Sd-HUb" secondAttribute="centerX" id="3eg-Im-YTX"/>
                             <constraint firstItem="VJX-O5-8Qm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8cm-IZ-k4h"/>
                             <constraint firstItem="VJX-O5-8Qm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="71" id="KDM-ZV-az6"/>
                             <constraint firstItem="LRY-Sd-HUb" firstAttribute="top" secondItem="VJX-O5-8Qm" secondAttribute="bottom" constant="54" id="UcH-rs-2Fw"/>
+                            <constraint firstItem="dfz-oP-HAN" firstAttribute="height" secondItem="LRY-Sd-HUb" secondAttribute="height" id="mCX-1o-ira"/>
                             <constraint firstItem="dfz-oP-HAN" firstAttribute="top" secondItem="LRY-Sd-HUb" secondAttribute="bottom" constant="50" id="rmA-A7-pcJ"/>
                             <constraint firstItem="LRY-Sd-HUb" firstAttribute="centerX" secondItem="VJX-O5-8Qm" secondAttribute="centerX" id="rqk-VD-0Tl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dfz-oP-HAN" secondAttribute="bottom" constant="20" id="xBw-5z-dnu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
