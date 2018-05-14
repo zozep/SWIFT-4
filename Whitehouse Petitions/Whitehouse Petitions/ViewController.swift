@@ -16,7 +16,23 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        //urlString points to the Whitehouse.gov server, accessing the petitions system.
+        let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+        
+        if let url = URL(string: urlString) {
+            
+            //We create a new String object using its contentsOf method. This returns the content from a URL, but it might throw an error (i.e., if the internet connection was down) so we need to use try?
+            if let data = try? String(contentsOf: url) {
+                //If the String object was created successfully, we create a new JSON object from it. This is a SwiftyJSON structure.
+                let json = JSON(parseJSON: data)
+                
+                //if there is a "metadata" value and it contains a "responseInfo" value that contains a "status" value, return it as an integer, then compare it to 200
+                if json["metadata"]["responseInfo"]["status"].intValue == 200 {
+                    //use info
+                }
+            }
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
