@@ -29,10 +29,23 @@ class ViewController: UITableViewController {
                 
                 //if there is a "metadata" value and it contains a "responseInfo" value that contains a "status" value, return it as an integer, then compare it to 200
                 if json["metadata"]["responseInfo"]["status"].intValue == 200 {
-                    //use info
+                    parse(json: json)
                 }
             }
         }
+    }
+    
+    func parse(json: JSON) {
+        
+        //
+        for result in json["results"].arrayValue {
+            let title = result["title"].stringValue
+            let body = result["body"].stringValue
+            let sigs = result["signatureCount"].stringValue
+            let obj = ["title": title, "body": body, "sigs": sigs]
+            petitions.append(obj)
+        }
+        tableView.reloadData()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,9 +54,10 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = "Title goes here"
-        cell.detailTextLabel?.text = "Subtitle goes here"
+        let petition = petitions[indexPath.row]
+
+        cell.textLabel?.text = petition["title"]
+        cell.detailTextLabel?.text = petition["body"]
         return cell
     }
 }
-
