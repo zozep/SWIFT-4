@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadLevel()
         // all our buttons have the tag 1001, so we can loop through all the views inside our view controller, and modify them only if they have tag 1001
         for subview in view.subviews where subview.tag == 1001 {
             let btn = subview as! UIButton
@@ -37,8 +37,10 @@ class ViewController: UIViewController {
     }
 
     @objc func letterTapped(btn: UIButton) {
-        //letterTapped
-        print("lettertapped()!")
+        //We need to force unwrap both the title label and its text, because both might not exist – and yet we know they do.
+        currentAnswer.text = currentAnswer.text! + btn.titleLabel!.text!
+        activatedButtons.append(btn)
+        btn.isHidden = true
     }
     
     @IBAction func submitTapped(_ sender: AnyObject) {
@@ -46,9 +48,13 @@ class ViewController: UIViewController {
         print("submitTapped()!")
     }
     
-    @IBAction func clearTapped(_ sender: AnyObject) {
-        //clearTapped
-        print("clearTapped()!")
+    @IBAction func clearTapped(_ sender: Any) {
+        currentAnswer.text = ""
+        
+        for btn in activatedButtons {
+            btn.isHidden = false
+        }
+        activatedButtons.removeAll()
     }
     
     func loadLevel() {
@@ -87,7 +93,16 @@ class ViewController: UIViewController {
             }
         }
         
-        // Now configure the buttons and labels
+        cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
+        answersLabel.text = solutionString.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        letterBits = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: letterBits) as! [String]
+        
+        if letterBits.count == letterButtons.count {
+            for i in 0 ..< letterBits.count {
+                letterButtons[i].setTitle(letterBits[i], for: .normal)
+            }
+        }
     }
     
 }
