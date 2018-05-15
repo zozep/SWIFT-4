@@ -20,12 +20,15 @@ class ViewController: UIViewController {
     var activatedButtons = [UIButton]()
     var solutions = [String]()
     
-    var score = 0
+    var score = 0 {
+        didSet {
+            scoreLabel.text = "Score: \(score)"
+        }
+    }
     var level = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadLevel()
         // all our buttons have the tag 1001, so we can loop through all the views inside our view controller, and modify them only if they have tag 1001
         for subview in view.subviews where subview.tag == 1001 {
             let btn = subview as! UIButton
@@ -34,6 +37,9 @@ class ViewController: UIViewController {
             //addTarget() is the code version of Ctrl-dragging in a storyboard and it lets us attach a method to the button click
             btn.addTarget(self, action: #selector(letterTapped), for: .touchUpInside)
         }
+        
+        loadLevel()
+
     }
 
     @objc func letterTapped(btn: UIButton) {
@@ -73,7 +79,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func clearTapped(_ sender: Any) {
+    @IBAction func clearTapped(_ sender: AnyObject) {
         currentAnswer.text = ""
         
         for btn in activatedButtons {
@@ -92,7 +98,6 @@ class ViewController: UIViewController {
             if let levelContents = try? String(contentsOfFile: levelFilePath) {
                 var lines = levelContents.components(separatedBy: "\n")
                 lines = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: lines) as! [String]
-                
                 
                 //enumerated(): it tells us where each item was in the array so we can use that information in our clue string in the code above, enumerated() will place the item into the line variable and its position into the index var
                 for (index, line) in lines.enumerated() {

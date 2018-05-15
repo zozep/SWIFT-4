@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="MDX-ai-hmG">
             <objects>
-                <viewController id="8zC-br-MmY" customClass="ViewController" customModule="SwiftyWords" sceneMemberID="viewController">
+                <viewController id="8zC-br-MmY" customClass="ViewController" customModule="SwiftyWords" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ddi-Te-1CZ">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -183,7 +183,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SUBMIT"/>
                                 <connections>
-                                    <action selector="submitTapped:" destination="8zC-br-MmY" eventType="touchUpInside" id="OZA-Ug-crf"/>
+                                    <action selector="submitTapped:" destination="8zC-br-MmY" eventType="touchUpInside" id="SNO-sq-NLU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWX-hl-xKP">
@@ -191,7 +191,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="CLEAR"/>
                                 <connections>
-                                    <action selector="clearTapped:" destination="8zC-br-MmY" eventType="touchUpInside" id="MyJ-YO-mV8"/>
+                                    <action selector="clearTapped:" destination="8zC-br-MmY" eventType="touchUpInside" id="5OV-Id-a1T"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap letters to guess" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="99i-4S-dwr">
@@ -227,15 +227,15 @@
                         <viewLayoutGuide key="safeArea" id="3d1-71-T8L"/>
                     </view>
                     <connections>
-                        <outlet property="answersLabel" destination="5a4-9e-MLE" id="ct8-uM-Hf5"/>
-                        <outlet property="cluesLabel" destination="P4L-d4-Ioo" id="ZSy-1o-7IE"/>
-                        <outlet property="currentAnswer" destination="99i-4S-dwr" id="uRg-Sz-L4x"/>
-                        <outlet property="scoreLabel" destination="Fjd-Ot-4FD" id="O58-OF-yfK"/>
+                        <outlet property="answersLabel" destination="5a4-9e-MLE" id="jni-aL-akY"/>
+                        <outlet property="cluesLabel" destination="P4L-d4-Ioo" id="0vb-Cv-yQu"/>
+                        <outlet property="currentAnswer" destination="99i-4S-dwr" id="bYI-XY-1F9"/>
+                        <outlet property="scoreLabel" destination="Fjd-Ot-4FD" id="a12-Sf-OXi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b3R-Ss-DJu" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.77343749999999" y="123.4375"/>
+            <point key="canvasLocation" x="126" y="-168"/>
         </scene>
     </scenes>
 </document>
