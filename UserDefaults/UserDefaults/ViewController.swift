@@ -15,8 +15,23 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let defaults = UserDefaults.standard
+        
+        // we use the object(forKey:) method to pull out an optional Data, using if let and as? to unwrap it.
+        //We then give that to the unarchiveObject(withData:) method of NSKeyedUnarchiver to convert it back to an object graph – i.e., our array of Person objects
+        if let savedPeople = defaults.object(forKey: "people") as? Data {
+            people = NSKeyedUnarchiver.unarchiveObject(with: savedPeople) as! [Person]
+        }
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
 
+    }
+    // MARK: - Custom Fx
+    //archivedData(withRootObject:) method of NSKeyedArchiver turns an object graph into a Data object using those NSCoding methods we just added to our class
+    func save() {
+        let savedData = NSKeyedArchiver.archivedData(withRootObject: people)
+        let defaults = UserDefaults.standard
+        defaults.set(savedData, forKey: "people")
     }
     
     @objc func addNewPerson() {
@@ -100,6 +115,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
                 person.name = newName.text!
                 
                 self.collectionView?.reloadData()
+                self.save()
         })
             present(ac, animated: true)
     }
