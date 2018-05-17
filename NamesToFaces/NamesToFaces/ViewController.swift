@@ -42,10 +42,32 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     }
 
     // MARK: - ImagePicker fx
-    // TODO: - Extract the image from the dictionary that is passed as a parameter.
-    // TODO: - Generate a unique filename for it.
-    // TODO: - Convert it to a JPEG, then write that JPEG to disk.
-    // TODO: - Dismiss the view controller.
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        //guard to pull out and typecast the image from the image picker, if that fails we want to exit the method immediately
+        guard let image = info[UIImagePickerControllerEditedImage] as? UIImage else {
+            return
+        }
+        
+        //create an UUID object, and use its uuidString property to extract the unique identifier as a string data type
+        let imageName = UUID().uuidString
+        let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
+
+        //converts a UIImage to a Data object
+        //Data = data type that can hold any type of binary type – image data, zip file data, movie data, and so on
+        if let jpegData = UIImageJPEGRepresentation(image, 80) {
+            try? jpegData.write(to: imagePath)
+        }
+        dismiss(animated: true)
+    }
+    
+    //All apps that are installed have a directory called Documents where you can save private information for the app
+    //it's not obvious how to find that directory
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        
+        return documentsDirectory
+    }
 
     
 }
