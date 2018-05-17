@@ -8,21 +8,13 @@
 
 import UIKit
 
-//If your data type is a class, it must conform to the NSCoding protocol, which is used for archiving object graphs.
-class Person: NSObject, NSCoding {
+//The Codable system works on both classes and structs
+//When we implemented NSCoding, we had to write encode() and decodeObject() calls ourself
+//this isn’t needed in Codable unless you need more precise control - it does the work for you
+//When you encode data using Codable you can save to the same format that NSCoding uses if you want, but a much more pleasant option is JSON – Codable reads and writes JSON natively
+class Person: NSObject, Codable {
     var name: String
     var image: String
-    
-    //The initializer is used when loading objects of this class. encode() is used when saving
-    required init?(coder aDecoder: NSCoder) {
-        name = aDecoder.decodeObject(forKey: "name") as! String
-        image = aDecoder.decodeObject(forKey: "image") as! String
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(name, forKey: "name")
-        aCoder.encode(image, forKey: "image")
-    }
     
     //String! and String? can both be nil, but plain old String can't – it must have a value
     init(name: String, image: String) {

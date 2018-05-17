@@ -12,27 +12,42 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     
     var people = [Person]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+        
         let defaults = UserDefaults.standard
         
-        // we use the object(forKey:) method to pull out an optional Data, using if let and as? to unwrap it.
-        //We then give that to the unarchiveObject(withData:) method of NSKeyedUnarchiver to convert it back to an object graph – i.e., our array of Person objects
+        //we use the object(forKey:) method to pull out an optional Data, using if let and as? to unwrap it.
+        //We then give that to an instance of JSONDecoder to convert it back to an object graph – i.e., our array of Person objects.
         if let savedPeople = defaults.object(forKey: "people") as? Data {
-            people = NSKeyedUnarchiver.unarchiveObject(with: savedPeople) as! [Person]
+            
+            let jsonDecoder = JSONDecoder()
+            
+            //its first parameter is [Person].self, which is Swift’s way of saying “attempt to create an array of Person objects. This is why we don’t need a typecast when assigning to people – that method will automatically return [People], or if the conversion fails then the catch block will be executed instead.
+            do {
+                people = try jsonDecoder.decode([Person].self, from: savedPeople)
+            } catch {
+                print("failed to load people")
+            }
         }
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
 
     }
     // MARK: - Custom Fx
-    //archivedData(withRootObject:) method of NSKeyedArchiver turns an object graph into a Data object using those NSCoding methods we just added to our class
     func save() {
-        let savedData = NSKeyedArchiver.archivedData(withRootObject: people)
-        let defaults = UserDefaults.standard
-        defaults.set(savedData, forKey: "people")
+        let jsonEncoder = JSONEncoder()
+        if let savedData = try? jsonEncoder.encode(people) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: "people")
+        } else {
+            print("Failed to save people")
+        }
+        
     }
+    
     
     @objc func addNewPerson() {
         let picker = UIImagePickerController()
@@ -89,8 +104,11 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         //stores image name in the Person object and gives them a default name of "Unknown", before reloading the collection view.
         let person = Person(name: "Unknown", image: imageName)
         people.append(person)
+        
+
         collectionView?.reloadData()
         dismiss(animated: true)
+        save()
     }
     
     //All apps that are installed have a directory called Documents where you can save private information for the app
@@ -114,8 +132,10 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
                 let newName = ac.textFields![0]
                 person.name = newName.text!
                 
+                //self is required because we are inside a closure
                 self.collectionView?.reloadData()
                 self.save()
+
         })
             present(ac, animated: true)
     }
