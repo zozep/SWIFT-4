@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,13 +20,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X2Q-am-kO1">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X2Q-am-kO1">
                                 <rect key="frame" x="0.0" y="64" width="375" height="470"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F3K-CP-LtI">
+                                        <rect key="frame" x="10" y="10" width="355" height="450"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="F3K-CP-LtI" firstAttribute="top" secondItem="X2Q-am-kO1" secondAttribute="top" constant="10" id="Ola-rI-gWk"/>
+                                    <constraint firstItem="F3K-CP-LtI" firstAttribute="leading" secondItem="X2Q-am-kO1" secondAttribute="leading" constant="10" id="RM6-sH-vv2"/>
+                                    <constraint firstItem="F3K-CP-LtI" firstAttribute="centerY" secondItem="X2Q-am-kO1" secondAttribute="centerY" id="TO0-Xz-VOL"/>
+                                    <constraint firstItem="F3K-CP-LtI" firstAttribute="centerX" secondItem="X2Q-am-kO1" secondAttribute="centerX" id="teX-kA-d5z"/>
+                                </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKX-dL-kzS">
+                                <rect key="frame" x="16" y="562" width="72" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="GjO-fz-qmr"/>
+                                    <constraint firstAttribute="width" constant="72" id="hGb-M8-1jt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5bm-n5-Mst">
+                                <rect key="frame" x="96" y="558" width="262" height="30"/>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRv-Ux-lXX">
+                                <rect key="frame" x="16" y="605" width="120" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="9Ca-h8-riR"/>
+                                    <constraint firstAttribute="height" constant="44" id="UdK-f5-vR6"/>
+                                </constraints>
+                                <state key="normal" title="Change Filter"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKh-ab-wXN">
+                                <rect key="frame" x="300" y="605" width="60" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="jru-G6-R3b"/>
+                                </constraints>
+                                <state key="normal" title="Save"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="X2Q-am-kO1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0Fs-Tl-8b4"/>
+                            <constraint firstItem="YKX-dL-kzS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="11l-AZ-UDO"/>
+                            <constraint firstItem="YKX-dL-kzS" firstAttribute="leading" secondItem="uRv-Ux-lXX" secondAttribute="leading" id="8Ms-RC-b9H"/>
+                            <constraint firstItem="uRv-Ux-lXX" firstAttribute="baseline" secondItem="zKh-ab-wXN" secondAttribute="firstBaseline" id="B31-Br-Q6c"/>
+                            <constraint firstItem="uRv-Ux-lXX" firstAttribute="top" secondItem="5bm-n5-Mst" secondAttribute="bottom" constant="18" id="G3a-3b-TlF"/>
+                            <constraint firstItem="X2Q-am-kO1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IKp-oM-isc"/>
+                            <constraint firstItem="YKX-dL-kzS" firstAttribute="centerY" secondItem="5bm-n5-Mst" secondAttribute="centerY" id="T2z-pY-R4M"/>
+                            <constraint firstItem="5bm-n5-Mst" firstAttribute="leading" secondItem="YKX-dL-kzS" secondAttribute="trailing" constant="10" id="d5x-dj-zme"/>
+                            <constraint firstItem="uRv-Ux-lXX" firstAttribute="top" secondItem="YKX-dL-kzS" secondAttribute="bottom" constant="22" id="hbo-Iq-SsN"/>
+                            <constraint firstAttribute="trailing" secondItem="X2Q-am-kO1" secondAttribute="trailing" id="j7U-QJ-mcx"/>
+                            <constraint firstItem="uRv-Ux-lXX" firstAttribute="top" secondItem="zKh-ab-wXN" secondAttribute="top" id="mva-k8-Tlv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zKh-ab-wXN" secondAttribute="trailing" constant="15" id="o6r-Le-uCA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5bm-n5-Mst" secondAttribute="trailing" constant="19" id="oyg-6a-yzb"/>
+                            <constraint firstItem="5bm-n5-Mst" firstAttribute="top" secondItem="X2Q-am-kO1" secondAttribute="bottom" constant="24" id="pPZ-bw-AFY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uRv-Ux-lXX" secondAttribute="bottom" constant="18" id="ryg-WS-Q1A"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Fq7-Bd-gj5"/>
