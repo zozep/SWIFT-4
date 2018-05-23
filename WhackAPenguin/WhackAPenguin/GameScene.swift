@@ -105,6 +105,7 @@ class GameScene: SKScene {
     }
     
     //Because createEnemy() calls itself, all we have to do is call it once in didMove(to: ) after a brief delay
+    //When it is greater than or equal to 30, we're going to end the game: hide all the slots, show a "Game over" sprite, then exit the method
     func createEnemy() {
         numRounds += 1
         
@@ -115,6 +116,8 @@ class GameScene: SKScene {
             
             let gameOver = SKSpriteNode(imageNamed: "gameOver")
             gameOver.position = CGPoint(x: 512, y: 384)
+            
+            //uses a position zPosition so that the game over graphic is placed over other items in our game
             gameOver.zPosition = 1
             addChild(gameOver)
             
