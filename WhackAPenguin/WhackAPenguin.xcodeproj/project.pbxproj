@@ -93,11 +93,22 @@
 				7CADC5BB20B354D0000DBB9F /* AppDelegate.swift */,
 				7CADC5BD20B354D0000DBB9F /* GameScene.sks */,
 				7CADC5C120B354D0000DBB9F /* GameScene.swift */,
-				7CDA8A6420B52B7600F72764 /* WhackSlot.swift */,
-				7CADC5C320B354D0000DBB9F /* GameViewController.swift */,
-				7CADC5C520B354D0000DBB9F /* Main.storyboard */,
 				7CADC5D320B355AB000DBB9F /* Helper.swift */,
+				7CADC5C320B354D0000DBB9F /* GameViewController.swift */,
+				7CDA8A6420B52B7600F72764 /* WhackSlot.swift */,
+				7CDA8A6620B5490600F72764 /* Content */,
+				7CADC5C520B354D0000DBB9F /* Main.storyboard */,
 				7CADC5C820B354D1000DBB9F /* Assets.xcassets */,
+				7CADC5CA20B354D1000DBB9F /* LaunchScreen.storyboard */,
+				7CADC5CD20B354D1000DBB9F /* Info.plist */,
+			);
+			path = WhackAPenguin;
+			sourceTree = "<group>";
+		};
+		7CDA8A6620B5490600F72764 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				7CADC5D520B355AB000DBB9F /* whackBad.caf */,
 				7CADC5D620B355AB000DBB9F /* penguinGood.png */,
 				7CADC5D720B355AB000DBB9F /* whackMask.png */,
 				7CADC5D820B355AB000DBB9F /* whackBackground.png */,
@@ -111,11 +122,8 @@
 				7CADC5E020B355AB000DBB9F /* gameOver.png */,
 				7CADC5E120B355AB000DBB9F /* whackMask@2x.png */,
 				7CADC5E220B355AB000DBB9F /* whackBackground@2x.png */,
-				7CADC5CA20B354D1000DBB9F /* LaunchScreen.storyboard */,
-				7CADC5CD20B354D1000DBB9F /* Info.plist */,
-				7CADC5D520B355AB000DBB9F /* whackBad.caf */,
 			);
-			path = WhackAPenguin;
+			path = Content;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

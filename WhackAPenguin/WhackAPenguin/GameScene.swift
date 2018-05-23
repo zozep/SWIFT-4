@@ -48,7 +48,7 @@ class GameScene: SKScene {
         
     }
     
-    func createSlot(at positoin: CGPoint) {
+    func createSlot(at position: CGPoint) {
         let slot = WhackSlot()
         slot.configure(at: position)
         addChild(slot)
