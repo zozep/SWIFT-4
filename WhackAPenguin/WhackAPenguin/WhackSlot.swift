@@ -72,4 +72,21 @@ class WhackSlot: SKNode {
         isVisible = false
     }
     
+    func hit() {
+        isHit = true
+        
+        let delay = SKAction.wait(forDuration: 0.25)
+        let hide = SKAction.moveBy(x: 0, y: -80, duration: 0.5)
+        
+        //will run any code we want, provided as a closure. "Block" is Objective-C's name for a Swift closure.
+        //need to use SKAction.run(block:) in order to set the penguin's isVisible property to be false rather than doing it directly
+        //because we want it to fit into the sequence, it will only be changed when that part of the sequence is reached.
+        let notVisible = SKAction.run { [unowned self] in self.isVisible = false }
+        
+        }
+        //SKAction.sequence() takes an array of actions, and executes them in order. Each action won't start executing until the previous one finished.
+        charNode.run(SKAction.sequence([delay, hide, notVisible]))
+        }
+    }
+    
 }
