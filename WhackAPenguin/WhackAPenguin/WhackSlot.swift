@@ -42,6 +42,8 @@ class WhackSlot: SKNode {
         addChild(cropNode)
     }
     
+    //method is going to be triggered by the view controller on a recurring basis,
+    //managed by a property we're going to create called popupTime
     func show(hideTime: Double) {
         if isVisible { return }
         
@@ -56,6 +58,18 @@ class WhackSlot: SKNode {
             charNode.texture = SKTexture(imageNamed: "penguinEvil")
             charNode.name = "charEnemy"
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + (hideTime * 3.5)) { [unowned self] in
+            self.hide()
+        }
+        
+    }
+    
+    func hide() {
+        if !isVisible { return }
+        
+        charNode.run(SKAction.moveBy(x: 0, y:-80, duration:0.05))
+        isVisible = false
     }
     
 }
