@@ -45,7 +45,12 @@ class WhackSlot: SKNode {
     //method is going to be triggered by the view controller on a recurring basis,
     //managed by a property we're going to create called popupTime
     func show(hideTime: Double) {
-        if isVisible { return }
+        if isVisible {
+            return
+        }
+        //Since we're now potentially modifying the xScale and yScale properties of our character node, we need to reset them to 1 inside the show() method of the slot
+        charNode.xScale = 1
+        charNode.yScale = 1
         
         charNode.run(SKAction.moveBy(x: 0, y: 80, duration: 0.05))
         isVisible = true
@@ -83,10 +88,8 @@ class WhackSlot: SKNode {
         //because we want it to fit into the sequence, it will only be changed when that part of the sequence is reached.
         let notVisible = SKAction.run { [unowned self] in self.isVisible = false }
         
-        }
         //SKAction.sequence() takes an array of actions, and executes them in order. Each action won't start executing until the previous one finished.
         charNode.run(SKAction.sequence([delay, hide, notVisible]))
-        }
     }
-    
 }
+

@@ -10,6 +10,7 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
+    var numRounds = 0
 
     var slots = [WhackSlot]()
     var gameScore: SKLabelNode!
@@ -50,8 +51,50 @@ class GameScene: SKScene {
 
     }
     
+    //needs to figure out what was tapped using the same nodes(at:).
+    //find any touch, find out where it was tapped, then get a node array of all nodes at that point in the scene.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        if let touch = touches.first {
+            let location = touch.location(in: self)
+            let tappedNodes = nodes(at: location)
+            
+            for node in tappedNodes {
+                if node.name == "charFriend" {
+
+                    //This line is needed because the player has tapped the penguin sprite node, not the slot – we need to get the parent of the penguin, which is the crop node it sits inside, then get the parent of the crop node, which is the WhackSlot object, which is what this code does.
+                    let whackSlot = node.parent!.parent as! WhackSlot
+                    
+                    if !whackSlot.isVisible {
+                        continue
+                    }
+                    if whackSlot.isHit {
+                        continue
+                    }
+                    
+                    whackSlot.hit()
+                    score -= 5
+                    
+                    run(SKAction.playSoundFileNamed("whackBad.caf", waitForCompletion: false))
+                } else if node.name == "charEnemy" {
+                    // they should have whacked this one
+                    let whackSlot = node.parent!.parent as! WhackSlot
+                    if !whackSlot.isVisible {
+                        continue
+                    }
+                    if whackSlot.isHit {
+                        continue
+                    }
+                    
+                    whackSlot.charNode.xScale = 0.85
+                    whackSlot.charNode.yScale = 0.85
+                    
+                    whackSlot.hit()
+                    score += 1
+                    
+                    run(SKAction.playSoundFileNamed("whack.caf", waitForCompletion:false))
+                }
+            }
+        }
     }
     
     func createSlot(at position: CGPoint) {
@@ -63,6 +106,21 @@ class GameScene: SKScene {
     
     //Because createEnemy() calls itself, all we have to do is call it once in didMove(to: ) after a brief delay
     func createEnemy() {
+        numRounds += 1
+        
+        if numRounds >= 30 {
+            for slot in slots {
+                slot.hide()
+            }
+            
+            let gameOver = SKSpriteNode(imageNamed: "gameOver")
+            gameOver.position = CGPoint(x: 512, y: 384)
+            gameOver.zPosition = 1
+            addChild(gameOver)
+            
+            return
+        }
+        
         popupTime *= 0.991
         
         slots = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: slots) as! [WhackSlot]
