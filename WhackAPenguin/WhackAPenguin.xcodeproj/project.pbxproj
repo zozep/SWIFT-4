@@ -29,6 +29,7 @@
 		7CADC5EF20B355AB000DBB9F /* gameOver.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CADC5E020B355AB000DBB9F /* gameOver.png */; };
 		7CADC5F020B355AB000DBB9F /* whackMask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CADC5E120B355AB000DBB9F /* whackMask@2x.png */; };
 		7CADC5F120B355AB000DBB9F /* whackBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CADC5E220B355AB000DBB9F /* whackBackground@2x.png */; };
+		7CDA8A6520B52B7600F72764 /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDA8A6420B52B7600F72764 /* WhackSlot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		7CADC5E020B355AB000DBB9F /* gameOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameOver.png; sourceTree = "<group>"; };
 		7CADC5E120B355AB000DBB9F /* whackMask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whackMask@2x.png"; sourceTree = "<group>"; };
 		7CADC5E220B355AB000DBB9F /* whackBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whackBackground@2x.png"; sourceTree = "<group>"; };
+		7CDA8A6420B52B7600F72764 /* WhackSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				7CADC5BB20B354D0000DBB9F /* AppDelegate.swift */,
 				7CADC5BD20B354D0000DBB9F /* GameScene.sks */,
 				7CADC5C120B354D0000DBB9F /* GameScene.swift */,
+				7CDA8A6420B52B7600F72764 /* WhackSlot.swift */,
 				7CADC5C320B354D0000DBB9F /* GameViewController.swift */,
 				7CADC5C520B354D0000DBB9F /* Main.storyboard */,
 				7CADC5D320B355AB000DBB9F /* Helper.swift */,
@@ -205,6 +208,7 @@
 				7CADC5C420B354D0000DBB9F /* GameViewController.swift in Sources */,
 				7CADC5BC20B354D0000DBB9F /* AppDelegate.swift in Sources */,
 				7CADC5E320B355AB000DBB9F /* Helper.swift in Sources */,
+				7CDA8A6520B52B7600F72764 /* WhackSlot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
