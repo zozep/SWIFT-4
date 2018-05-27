@@ -27,15 +27,33 @@ class ViewController: UIViewController {
         //button is hideen so animations don't collide. it gets unhidden in the completion closure of the animation
         tap.isHidden = true
         
-        //We call animate(withDuration:) with a duration of 1 second, no delay, and no interesting options
-        UIView.animate(withDuration: 1, delay: 0, options: [],
+        //This changes the animate(withDuration:) so that it uses spring animations rather than the default, ease-in-ease-out animation
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [],
                        //For the animations closure we first do the usual [unowned self] in dance to avoid strong reference cycles, then enter the switch/case code.
                        animations: { [unowned self] in
                         //We switch using the value of self.currentAnimation. 'self' to make the closure capture clear
                         switch self.currentAnimation {
                         case 0:
-                            break
+                            //1 means "the default size", 2 will make the view twice its normal width and height
+                            self.imageView.transform = CGAffineTransform(scaleX: 2, y: 2)
+                        case 1:
+                            self.imageView.transform = CGAffineTransform.identity
+                        case 2:
+                            //Core Animation will always take the shortest route to make the rotation work. meaning anything over 360 is converted back: e.g: 540 = 180
+                            self.imageView.transform = CGAffineTransform(translationX: -256, y: -256)
+                        case 3:
+                            self.imageView.transform = CGAffineTransform.identity
+                        case 4:
+                            self.imageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+                        case 5:
+                            self.imageView.transform = CGAffineTransform.identity
+                        case 6:
+                            self.imageView.alpha = 0.1
+                            self.imageView.backgroundColor = UIColor.green
                             
+                        case 7:
+                            self.imageView.alpha = 1
+                            self.imageView.backgroundColor = UIColor.clear
                         default:
                             break
                         }
