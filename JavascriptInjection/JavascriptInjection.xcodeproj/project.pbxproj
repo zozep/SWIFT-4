@@ -12,7 +12,34 @@
 		7C273E5A20BBBEF900CD1DFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C273E5820BBBEF900CD1DFD /* Main.storyboard */; };
 		7C273E5C20BBBEFA00CD1DFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C273E5B20BBBEFA00CD1DFD /* Assets.xcassets */; };
 		7C273E5F20BBBEFA00CD1DFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C273E5D20BBBEFA00CD1DFD /* LaunchScreen.storyboard */; };
+		7CB1B12D20BFE765004F387E /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1B12C20BFE765004F387E /* ActionViewController.swift */; };
+		7CB1B13020BFE765004F387E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB1B12E20BFE765004F387E /* MainInterface.storyboard */; };
+		7CB1B13420BFE765004F387E /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7CB1B12A20BFE765004F387E /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7CB1B13220BFE765004F387E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7C273E4920BBBEF900CD1DFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7CB1B12920BFE765004F387E;
+			remoteInfo = Extension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7CB1B13820BFE765004F387E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7CB1B13420BFE765004F387E /* Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7C273E5120BBBEF900CD1DFD /* JavascriptInjection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JavascriptInjection.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,10 +49,21 @@
 		7C273E5B20BBBEFA00CD1DFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C273E5E20BBBEFA00CD1DFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C273E6020BBBEFA00CD1DFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CB1B12A20BFE765004F387E /* Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CB1B12C20BFE765004F387E /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		7CB1B12F20BFE765004F387E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		7CB1B13120BFE765004F387E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		7C273E4E20BBBEF900CD1DFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CB1B12720BFE765004F387E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				7C273E5320BBBEF900CD1DFD /* JavascriptInjection */,
+				7CB1B12B20BFE765004F387E /* Extension */,
 				7C273E5220BBBEF900CD1DFD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				7C273E5120BBBEF900CD1DFD /* JavascriptInjection.app */,
+				7CB1B12A20BFE765004F387E /* Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,6 +104,16 @@
 			path = JavascriptInjection;
 			sourceTree = "<group>";
 		};
+		7CB1B12B20BFE765004F387E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7CB1B12C20BFE765004F387E /* ActionViewController.swift */,
+				7CB1B12E20BFE765004F387E /* MainInterface.storyboard */,
+				7CB1B13120BFE765004F387E /* Info.plist */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,15 +124,34 @@
 				7C273E4D20BBBEF900CD1DFD /* Sources */,
 				7C273E4E20BBBEF900CD1DFD /* Frameworks */,
 				7C273E4F20BBBEF900CD1DFD /* Resources */,
+				7CB1B13820BFE765004F387E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7CB1B13320BFE765004F387E /* PBXTargetDependency */,
 			);
 			name = JavascriptInjection;
 			productName = JavascriptInjection;
 			productReference = 7C273E5120BBBEF900CD1DFD /* JavascriptInjection.app */;
 			productType = "com.apple.product-type.application";
+		};
+		7CB1B12920BFE765004F387E /* Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CB1B13720BFE765004F387E /* Build configuration list for PBXNativeTarget "Extension" */;
+			buildPhases = (
+				7CB1B12620BFE765004F387E /* Sources */,
+				7CB1B12720BFE765004F387E /* Frameworks */,
+				7CB1B12820BFE765004F387E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Extension;
+			productName = Extension;
+			productReference = 7CB1B12A20BFE765004F387E /* Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -90,12 +159,15 @@
 		7C273E4920BBBEF900CD1DFD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Joseph Park";
 				TargetAttributes = {
 					7C273E5020BBBEF900CD1DFD = {
 						CreatedOnToolsVersion = 9.3.1;
+					};
+					7CB1B12920BFE765004F387E = {
+						CreatedOnToolsVersion = 9.4;
 					};
 				};
 			};
@@ -113,6 +185,7 @@
 			projectRoot = "";
 			targets = (
 				7C273E5020BBBEF900CD1DFD /* JavascriptInjection */,
+				7CB1B12920BFE765004F387E /* Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +201,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7CB1B12820BFE765004F387E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CB1B13020BFE765004F387E /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -140,7 +221,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7CB1B12620BFE765004F387E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CB1B12D20BFE765004F387E /* ActionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7CB1B13320BFE765004F387E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7CB1B12920BFE765004F387E /* Extension */;
+			targetProxy = 7CB1B13220BFE765004F387E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7C273E5820BBBEF900CD1DFD /* Main.storyboard */ = {
@@ -157,6 +254,14 @@
 				7C273E5E20BBBEFA00CD1DFD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7CB1B12E20BFE765004F387E /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CB1B12F20BFE765004F387E /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -279,6 +384,7 @@
 		7C273E6420BBBEFA00CD1DFD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CBJ8E98WM5;
@@ -297,6 +403,7 @@
 		7C273E6520BBBEFA00CD1DFD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CBJ8E98WM5;
@@ -307,6 +414,46 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.joseph.JavascriptInjection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7CB1B13520BFE765004F387E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CBJ8E98WM5;
+				INFOPLIST_FILE = Extension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.joseph.JavascriptInjection.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7CB1B13620BFE765004F387E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CBJ8E98WM5;
+				INFOPLIST_FILE = Extension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.joseph.JavascriptInjection.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -329,6 +476,15 @@
 			buildConfigurations = (
 				7C273E6420BBBEFA00CD1DFD /* Debug */,
 				7C273E6520BBBEFA00CD1DFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7CB1B13720BFE765004F387E /* Build configuration list for PBXNativeTarget "Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CB1B13520BFE765004F387E /* Debug */,
+				7CB1B13620BFE765004F387E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
