@@ -15,8 +15,9 @@ run: function(parameters) {
 
     
 finalize: function(parameters) {
-    
-}
+    var customJavaScript = parameters["customJavaScript"];
+    eval(customJavaScript);
+}1qwaa
     
 };
 

@@ -12,11 +12,15 @@ import MobileCoreServices
 class ActionViewController: UIViewController {
 
     @IBOutlet weak var script: UITextView!
+    var pageTitle = ""
+    var pageURL = ""
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+
         //extensionContext lets us control how it interacts with the parent app
         //In the case of inputItems this will be an array of data the parent app is sending to our extension to use
         //We only care about this first item, and even then it might not exist -> conditionally typecast using if let and as?
@@ -36,16 +40,28 @@ class ActionViewController: UIViewController {
                     [unowned self] (dict, error) in
                     let itemDictionary = dict as! NSDictionary
                     let javaScriptValues = itemDictionary[NSExtensionJavaScriptPreprocessingResultsKey] as! NSDictionary
-                    print(javaScriptValues)                }
+                    self.pageTitle = javaScriptValues["title"] as! String
+                    self.pageURL = javaScriptValues["URL"] as! String
+                    
+                    //This is needed because the closure being executed as a result of loadItem(forTypeIdentifier:) could be called on any thread, and we don't want to change the UI unless we're on the main thread.
+                    DispatchQueue.main.async {
+                        self.title = self.pageTitle
+                    }
+                    
+                }
             }
         }
         
     }
 
     @IBAction func done() {
-        // Return any edited content to the host app.
-        // This template doesn't do anything, so we just echo the passed in items.
-        self.extensionContext!.completeRequest(returningItems: self.extensionContext!.inputItems, completionHandler: nil)
+        let item = NSExtensionItem()
+        let argument: NSDictionary = ["customJavaScript": script.text]
+        let webDictionary: NSDictionary = [NSExtensionJavaScriptFinalizeArgumentKey: argument]
+        let customJavaScript = NSItemProvider(item: webDictionary, typeIdentifier: kUTTypePropertyList as String)
+        item.attachments = [customJavaScript]
+        
+        extensionContext!.completeRequest(returningItems: [item])
     }
 
 }
