@@ -11,7 +11,8 @@ import MobileCoreServices
 
 class ActionViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var script: UITextView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +34,9 @@ class ActionViewController: UIViewController {
                     
                     //With the item successfully pulled out, we can get to the interesting stuff
                     [unowned self] (dict, error) in
-                    // do stuff!
-                }
+                    let itemDictionary = dict as! NSDictionary
+                    let javaScriptValues = itemDictionary[NSExtensionJavaScriptPreprocessingResultsKey] as! NSDictionary
+                    print(javaScriptValues)                }
             }
         }
         
