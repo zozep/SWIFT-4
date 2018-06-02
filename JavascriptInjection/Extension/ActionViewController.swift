@@ -15,42 +15,29 @@ class ActionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        // Get the item[s] we're handling from the extension context.
         
-        // For example, look for an image and place it into an image view.
-        // Replace this with something appropriate for the type[s] your extension supports.
-        var imageFound = false
-        for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
-            for provider in item.attachments! as! [NSItemProvider] {
-                if provider.hasItemConformingToTypeIdentifier(kUTTypeImage as String) {
-                    // This is an image. We'll load it, then place it in our image view.
-                    weak var weakImageView = self.imageView
-                    provider.loadItem(forTypeIdentifier: kUTTypeImage as String, options: nil, completionHandler: { (imageURL, error) in
-                        OperationQueue.main.addOperation {
-                            if let strongImageView = weakImageView {
-                                if let imageURL = imageURL as? URL {
-                                    strongImageView.image = UIImage(data: try! Data(contentsOf: imageURL))
-                                }
-                            }
-                        }
-                    })
+        //extensionContext lets us control how it interacts with the parent app
+        //In the case of inputItems this will be an array of data the parent app is sending to our extension to use
+        //We only care about this first item, and even then it might not exist -> conditionally typecast using if let and as?
+        if let inputItem = extensionContext!.inputItems.first as? NSExtensionItem {
+            //Input item contains an array of attachments, which are given to us wrapped up as an NSItemProvider
+            //Code pulls out the first attachment from the first input item
+            if let itemProvider = inputItem.attachments?.first as? NSItemProvider {
+                //to ask the item provider to actually provide us with its item
+                //it uses a closure so this code executes asynchronously
+                //the method will carry on executing while the item provider is busy loading and sending us its data.
+                itemProvider.loadItem(forTypeIdentifier: kUTTypePropertyList as String) {
+                    //[unowned self] to avoid strong reference cycles
+                    //also need to accept two parameters: the dictionary given to us to by the item provider
+                    //and any error that occurred.
                     
-                    imageFound = true
-                    break
+                    //With the item successfully pulled out, we can get to the interesting stuff
+                    [unowned self] (dict, error) in
+                    // do stuff!
                 }
             }
-            
-            if (imageFound) {
-                // We only handle one image, so stop looking for more.
-                break
-            }
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
     @IBAction func done() {
