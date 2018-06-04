@@ -24,12 +24,12 @@
 	<dict>
 		<key>NSExtensionAttributes</key>
 		<dict>
-			<key>NSExtensionJavaScriptPreprocessingFile</key>
-			<string>Action</string>
 			<key>NSExtensionActivationRule</key>
 			<dict>
+				<key>NSExtensionJavaScriptPreprocessingFile</key>
+				<string>Action</string>
 				<key>NSExtensionActivationSupportsWebPageWithMaxCount</key>
-				<string>1</string>
+				<integer>1</integer>
 			</dict>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>

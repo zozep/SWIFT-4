@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C2384F220C4EDA600677CF5 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = 7C2384F120C4EDA600677CF5 /* Action.js */; };
 		7C273E5520BBBEF900CD1DFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C273E5420BBBEF900CD1DFD /* AppDelegate.swift */; };
 		7C273E5720BBBEF900CD1DFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C273E5620BBBEF900CD1DFD /* ViewController.swift */; };
 		7C273E5A20BBBEF900CD1DFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C273E5820BBBEF900CD1DFD /* Main.storyboard */; };
 		7C273E5C20BBBEFA00CD1DFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C273E5B20BBBEFA00CD1DFD /* Assets.xcassets */; };
 		7C273E5F20BBBEFA00CD1DFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C273E5D20BBBEFA00CD1DFD /* LaunchScreen.storyboard */; };
-		7C9E9C8E20C2685800381792 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = 7C9E9C8D20C2685800381792 /* Action.js */; };
 		7CB1B12D20BFE765004F387E /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1B12C20BFE765004F387E /* ActionViewController.swift */; };
 		7CB1B13020BFE765004F387E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB1B12E20BFE765004F387E /* MainInterface.storyboard */; };
 		7CB1B13420BFE765004F387E /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7CB1B12A20BFE765004F387E /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -43,6 +43,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7C2384F120C4EDA600677CF5 /* Action.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Action.js; sourceTree = "<group>"; };
+		7C2384F320C4FB6700677CF5 /* Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Extension.entitlements; sourceTree = "<group>"; };
 		7C273E5120BBBEF900CD1DFD /* JavascriptInjection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JavascriptInjection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C273E5420BBBEF900CD1DFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C273E5620BBBEF900CD1DFD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +52,6 @@
 		7C273E5B20BBBEFA00CD1DFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C273E5E20BBBEFA00CD1DFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C273E6020BBBEFA00CD1DFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C9E9C8D20C2685800381792 /* Action.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Action.js; sourceTree = "<group>"; };
 		7CB1B12A20BFE765004F387E /* Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB1B12C20BFE765004F387E /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		7CB1B12F20BFE765004F387E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -109,10 +110,11 @@
 		7CB1B12B20BFE765004F387E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				7C2384F320C4FB6700677CF5 /* Extension.entitlements */,
 				7CB1B12C20BFE765004F387E /* ActionViewController.swift */,
 				7CB1B12E20BFE765004F387E /* MainInterface.storyboard */,
+				7C2384F120C4EDA600677CF5 /* Action.js */,
 				7CB1B13120BFE765004F387E /* Info.plist */,
-				7C9E9C8D20C2685800381792 /* Action.js */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -171,6 +173,11 @@
 					};
 					7CB1B12920BFE765004F387E = {
 						CreatedOnToolsVersion = 9.4;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -208,7 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C9E9C8E20C2685800381792 /* Action.js in Resources */,
+				7C2384F220C4EDA600677CF5 /* Action.js in Resources */,
 				7CB1B13020BFE765004F387E /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +433,7 @@
 		7CB1B13520BFE765004F387E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extension/Extension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CBJ8E98WM5;
 				INFOPLIST_FILE = Extension/Info.plist;
@@ -446,6 +454,7 @@
 		7CB1B13620BFE765004F387E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Extension/Extension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CBJ8E98WM5;
 				INFOPLIST_FILE = Extension/Info.plist;

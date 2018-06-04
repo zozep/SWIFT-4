@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WD0-WM-WCX">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="464"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -28,7 +28,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="WD0-WM-WCX" firstAttribute="bottom" secondItem="VVe-Uw-JpX" secondAttribute="bottom" id="1sW-gC-MYj"/>
-                            <constraint firstItem="WD0-WM-WCX" firstAttribute="top" secondItem="zMn-AG-sqS" secondAttribute="top" id="SwZ-yo-96K"/>
+                            <constraint firstItem="WD0-WM-WCX" firstAttribute="top" secondItem="zMn-AG-sqS" secondAttribute="top" constant="64" id="SwZ-yo-96K"/>
                             <constraint firstItem="WD0-WM-WCX" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" id="Z5J-dc-TnT"/>
                             <constraint firstAttribute="trailing" secondItem="WD0-WM-WCX" secondAttribute="trailing" id="hV6-Th-jsy"/>
                         </constraints>
