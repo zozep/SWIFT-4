@@ -15,9 +15,29 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     
     override func didMove(to view: SKView) {
-       
+        let background = SKSpriteNode(imageNamed: "sliceBackground")
+        background.position = CGPoint(x: 512, y: 384)
+        background.blendMode = .replace
+        background.zPosition = -1
+        addChild(background)
+        
+        physicsWorld.gravity = CGVector(dx: 0, dy: -6)
+        physicsWorld.speed = 0.85
+        
+        createScore()
+        createLives()
+        createSlices()
     }
     
+    func createScore() {
+        print("creatScore()")
+    }
+    func createLives() {
+        print("createLives()")
+    }
+    func createSlices() {
+        print("createSlices()")
+    }
     
     func touchDown(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
