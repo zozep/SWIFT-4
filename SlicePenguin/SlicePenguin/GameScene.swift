@@ -194,7 +194,27 @@ class GameScene: SKScene {
                 run(SKAction.playSoundFileNamed("whack.caf", waitForCompletion: false))
                 
             } else if node.name == "bomb" {
-                // destroy bomb
+                let emitter = SKEmitterNode(fileNamed: "sliceHitBomb")!
+                emitter.position = node.parent!.position
+                addChild(emitter)
+                
+                node.name = ""
+                node.parent?.physicsBody?.isDynamic = false
+                
+                let scaleOut = SKAction.scale(to: 0.001, duration:0.2)
+                let fadeOut = SKAction.fadeOut(withDuration: 0.2)
+                let group = SKAction.group([scaleOut, fadeOut])
+                
+                let seq = SKAction.sequence([group, SKAction.removeFromParent()])
+                
+                node.parent?.run(seq)
+                
+                let index = activeEnemies.index(of: node.parent as! SKSpriteNode)!
+                activeEnemies.remove(at: index)
+                
+                run(SKAction.playSoundFileNamed("explosion.caf", waitForCompletion: false))
+                endGame(triggeredByBomb: true)
+                
             }
         }
 
