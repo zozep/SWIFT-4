@@ -20,10 +20,6 @@ enum ForceBomb {
 }
 
 class GameScene: SKScene {
-    
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
-    
     var gameScore: SKLabelNode!
     var score = 0 {
         didSet {
@@ -54,8 +50,13 @@ class GameScene: SKScene {
     //used so we know when all the enemies are destroyed and we're ready to create more.
     var nextSequenceQueued = true
     
+    var gameEnded = false
     
     override func didMove(to view: SKView) {
+        if gameEnded {
+            return
+        }
+        
         let background = SKSpriteNode(imageNamed: "sliceBackground")
         background.position = CGPoint(x: 512, y: 384)
         background.blendMode = .replace
@@ -148,6 +149,10 @@ class GameScene: SKScene {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if gameEnded {
+            return
+        }
+        
         guard let touch = touches.first else { return }
         
         let location = touch.location(in: self)
@@ -403,8 +408,28 @@ class GameScene: SKScene {
         sequencePosition += 1
         nextSequenceQueued = false
     }
+    
     func subtractLife() {
-        print("HI")
+        lives -= 1
+        
+        run(SKAction.playSoundFileNamed("wrong.caf", waitForCompletion: false))
+        
+        var life: SKSpriteNode
+        
+        if lives == 2 {
+            life = livesImages[0]
+        } else if lives == 1 {
+            life = livesImages[1]
+        } else {
+            life = livesImages[2]
+            endGame(triggeredByBomb: false)
+        }
+        
+        life.texture = SKTexture(imageNamed: "sliceLifeGone")
+        
+        life.xScale = 1.3
+        life.yScale = 1.3
+        life.run(SKAction.scale(to: 1, duration:0.1))
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -461,8 +486,24 @@ class GameScene: SKScene {
     }
     
     func endGame(triggeredByBomb: Bool) {
-        if 1 < 2 {
+        if gameEnded {
             return
         }
+        
+        gameEnded = true
+        physicsWorld.speed = 0
+        isUserInteractionEnabled = false
+        
+        if bombSoundEffect != nil {
+            bombSoundEffect.stop()
+            bombSoundEffect = nil
+        }
+        
+        if triggeredByBomb {
+            livesImages[0].texture = SKTexture(imageNamed: "sliceLifeGone")
+            livesImages[1].texture = SKTexture(imageNamed: "sliceLifeGone")
+            livesImages[2].texture = SKTexture(imageNamed: "sliceLifeGone")
+        }
     }
+
 }

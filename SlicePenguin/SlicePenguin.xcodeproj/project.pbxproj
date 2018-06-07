@@ -104,8 +104,6 @@
 		7C0AD1E120C6698F008AF37A /* SlicePenguin */ = {
 			isa = PBXGroup;
 			children = (
-				7C0AD1FB20C66A5E008AF37A /* Content */,
-				7C0AD1FA20C66A5E008AF37A /* Helper.swift */,
 				7C0AD1E220C6698F008AF37A /* AppDelegate.swift */,
 				7C0AD1E420C6698F008AF37A /* GameScene.sks */,
 				7C0AD1E820C6698F008AF37A /* GameScene.swift */,
@@ -114,6 +112,8 @@
 				7C0AD1EF20C66990008AF37A /* Assets.xcassets */,
 				7C0AD1F120C66990008AF37A /* LaunchScreen.storyboard */,
 				7C0AD1F420C66990008AF37A /* Info.plist */,
+				7C0AD1FA20C66A5E008AF37A /* Helper.swift */,
+				7C0AD1FB20C66A5E008AF37A /* Content */,
 			);
 			path = SlicePenguin;
 			sourceTree = "<group>";
