@@ -158,6 +158,46 @@ class GameScene: SKScene {
         if !isSwooshSoundActive {
             playSwooshSound()
         }
+        
+        let nodesAtPoint = nodes(at: location)
+        
+        for node in nodesAtPoint {
+            if node.name == "enemy" {
+                // Create a particle effect over the penguin.
+                let emitter = SKEmitterNode(fileNamed: "sliceHitEnemy")!
+                emitter.position = node.position
+                addChild(emitter)
+                
+                // Clear its node name so that it can't be swiped repeatedly.
+                node.name = ""
+                
+                // Disable the isDynamic of its physics body so that it doesn't carry on falling.
+                node.physicsBody?.isDynamic = false
+                
+                // Make the penguin scale out and fade out at the same time.
+                let scaleOut = SKAction.scale(to: 0.001, duration:0.2)
+                let fadeOut = SKAction.fadeOut(withDuration: 0.2)
+                let group = SKAction.group([scaleOut, fadeOut])
+                
+                // After making the penguin scale out and fade out, we should remove it from the scene.
+                let seq = SKAction.sequence([group, SKAction.removeFromParent()])
+                node.run(seq)
+                
+                //Add one to the player's score.
+                score += 1
+                
+                // Remove the enemy from our activeEnemies array.
+                let index = activeEnemies.index(of: node as! SKSpriteNode)!
+                activeEnemies.remove(at: index)
+                
+                // Play a sound so the player knows they hit the penguin.
+                run(SKAction.playSoundFileNamed("whack.caf", waitForCompletion: false))
+                
+            } else if node.name == "bomb" {
+                // destroy bomb
+            }
+        }
+
     }
     
     func playSwooshSound() {
@@ -345,6 +385,26 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        if activeEnemies.count > 0 {
+            for node in activeEnemies {
+                if node.position.y < -140 {
+                    node.removeFromParent()
+                    
+                    if let index = activeEnemies.index(of: node) {
+                        activeEnemies.remove(at: index)
+                    }
+                }
+            }
+        } else {
+            if !nextSequenceQueued {
+                DispatchQueue.main.asyncAfter(deadline: .now() + popupTime) { [unowned self] in
+                    self.tossEnemies()
+                }
+                
+                nextSequenceQueued = true
+            }
+        }
+        
         var bombCount = 0
         
         for node in activeEnemies {
