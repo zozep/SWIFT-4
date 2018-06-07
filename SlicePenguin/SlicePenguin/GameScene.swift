@@ -403,15 +403,32 @@ class GameScene: SKScene {
         sequencePosition += 1
         nextSequenceQueued = false
     }
+    func subtractLife() {
+        print("HI")
+    }
     
     override func update(_ currentTime: TimeInterval) {
         if activeEnemies.count > 0 {
             for node in activeEnemies {
                 if node.position.y < -140 {
-                    node.removeFromParent()
+                    node.removeAllActions()
                     
-                    if let index = activeEnemies.index(of: node) {
-                        activeEnemies.remove(at: index)
+                    if node.name == "enemy" {
+                        node.name = ""
+                        subtractLife()
+                        
+                        node.removeFromParent()
+                        
+                        if let index = activeEnemies.index(of: node) {
+                            activeEnemies.remove(at: index)
+                        }
+                    } else if node.name == "bombContainer" {
+                        node.name = ""
+                        node.removeFromParent()
+                        
+                        if let index = activeEnemies.index(of: node) {
+                            activeEnemies.remove(at: index)
+                        }
                     }
                 }
             }
@@ -443,4 +460,9 @@ class GameScene: SKScene {
         }
     }
     
+    func endGame(triggeredByBomb: Bool) {
+        if 1 < 2 {
+            return
+        }
+    }
 }
