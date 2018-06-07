@@ -10,6 +10,10 @@ import SpriteKit
 import GameplayKit
 import AVFoundation
 
+//outlines the possible types of ways we can create enemy
+enum SequenceType: Int {
+    case oneNoBomb, one, twoWithOneBomb, two, three, four, chain, fastChain
+}
 
 enum ForceBomb {
     case never, always, random
@@ -39,7 +43,17 @@ class GameScene: SKScene {
 
     //track enemies that are currently active in the scene
     var activeEnemies = [SKSpriteNode]()
-
+    //the amount of time to wait between the last enemy being destroyed and a new one being created.
+    var popupTime = 0.9
+    //array of our SequenceType enum that defines what enemies to create.
+    var sequence: [SequenceType]!
+    //where we are right now in the game
+    var sequencePosition = 0
+    //how long to wait before creating a new enemy when the sequence type is .chain or .fastChain
+    var chainDelay = 3.0
+    //used so we know when all the enemies are destroyed and we're ready to create more.
+    var nextSequenceQueued = true
+    
     
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "sliceBackground")
@@ -54,6 +68,17 @@ class GameScene: SKScene {
         createScore()
         createLives()
         createSlices()
+        
+        sequence = [.oneNoBomb, .oneNoBomb, .twoWithOneBomb, .twoWithOneBomb, .three, .one, .chain]
+        
+        for _ in 0 ... 1000 {
+            let nextSequence = SequenceType(rawValue: RandomInt(min: 2, max: 7))!
+            sequence.append(nextSequence)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [unowned self] in
+            self.tossEnemies()
+        }
     }
     
     func createScore() {
@@ -263,6 +288,60 @@ class GameScene: SKScene {
         enemy.physicsBody?.collisionBitMask = 0
         addChild(enemy)
         activeEnemies.append(enemy)
+    }
+    
+    func tossEnemies() {
+        popupTime *= 0.991
+        chainDelay *= 0.99
+        physicsWorld.speed *= 1.02
+        
+        let sequenceType = sequence[sequencePosition]
+        
+        switch sequenceType {
+        case .oneNoBomb:
+            createEnemy(forceBomb: .never)
+            
+        case .one:
+            createEnemy()
+            
+        case .twoWithOneBomb:
+            createEnemy(forceBomb: .never)
+            createEnemy(forceBomb: .always)
+            
+        case .two:
+            createEnemy()
+            createEnemy()
+            
+        case .three:
+            createEnemy()
+            createEnemy()
+            createEnemy()
+            
+        case .four:
+            createEnemy()
+            createEnemy()
+            createEnemy()
+            createEnemy()
+            
+        case .chain:
+            createEnemy()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 5.0)) { [unowned self] in self.createEnemy() }
+            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 5.0 * 2)) { [unowned self] in self.createEnemy() }
+            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 5.0 * 3)) { [unowned self] in self.createEnemy() }
+            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 5.0 * 4)) { [unowned self] in self.createEnemy() }
+            
+        case .fastChain:
+            createEnemy()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 10.0)) { [unowned self] in self.createEnemy() }
+            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 10.0 * 2)) { [unowned self] in self.createEnemy() }
+            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 10.0 * 3)) { [unowned self] in self.createEnemy() }
+            DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 10.0 * 4)) { [unowned self] in self.createEnemy() }
+        }
+        
+        sequencePosition += 1
+        nextSequenceQueued = false
     }
     
     override func update(_ currentTime: TimeInterval) {
