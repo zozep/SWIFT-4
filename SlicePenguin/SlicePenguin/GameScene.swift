@@ -9,6 +9,10 @@
 import SpriteKit
 import GameplayKit
 
+enum ForceBomb {
+    case never, always, random
+}
+
 class GameScene: SKScene {
     
     private var label : SKLabelNode?
@@ -23,10 +27,15 @@ class GameScene: SKScene {
 
     var livesImages = [SKSpriteNode]()
     var lives = 3
+    
     var activeSliceBG: SKShapeNode!
     var activeSliceFG: SKShapeNode!
     var activeSlicePoints = [CGPoint]()
+    
     var isSwooshSoundActive = false
+    
+    //track enemies that are currently active in the scene
+    var activeEnemies = [SKSpriteNode]()
 
     
     override func didMove(to view: SKView) {
@@ -169,6 +178,34 @@ class GameScene: SKScene {
         //Finally, it needs to update the slice shape paths so they get drawn using their designs – i.e., line width and color
         activeSliceBG.path = path.cgPath
         activeSliceFG.path = path.cgPath
+    }
+    
+    /* Accept a parameter of whether we want to force a bomb, not force a bomb, or just be random.
+     Decide whether to create a bomb or a penguin (based on the parameter input) then create the correct thing.
+     Add the new enemy to the scene, and also to our activeEnemies array. */
+    func createEnemy(forceBomb: ForceBomb = .random) {
+        var enemy: SKSpriteNode
+        
+        var enemyType = RandomInt(min: 0, max: 6)
+        
+        if forceBomb == .never {
+            enemyType = 1
+        } else if forceBomb == .always {
+            enemyType = 0
+        }
+        
+        if enemyType == 0 {
+            // bomb code goes here
+        } else {
+            enemy = SKSpriteNode(imageNamed: "penguin")
+            run(SKAction.playSoundFileNamed("launch.caf", waitForCompletion: false))
+            enemy.name = "enemy"
+        }
+        
+        // position code goes here
+        
+        addChild(enemy)
+        activeEnemies.append(enemy)
     }
     
 }
