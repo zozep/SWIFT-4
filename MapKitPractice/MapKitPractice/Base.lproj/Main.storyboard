@@ -19,6 +19,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ep0-Mm-EHv">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="GCf-ja-jtz"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -30,10 +33,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="t2x-t7-JL5"/>
+                    <connections>
+                        <outlet property="mapView" destination="ep0-Mm-EHv" id="78w-gx-sGu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1108" y="792.95352323838085"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eX7-Lt-Ud2">
