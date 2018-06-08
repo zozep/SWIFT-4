@@ -13,6 +13,7 @@
 		7C37FD0A20CA3BB600046540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C37FD0920CA3BB600046540 /* Assets.xcassets */; };
 		7C37FD0D20CA3BB600046540 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C37FD0B20CA3BB600046540 /* LaunchScreen.storyboard */; };
 		7C37FD1820CA424D00046540 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C37FD1720CA424D00046540 /* MapKit.framework */; };
+		7C37FD1A20CA436200046540 /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C37FD1920CA436200046540 /* Capital.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7C37FD0C20CA3BB600046540 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C37FD0E20CA3BB600046540 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C37FD1720CA424D00046540 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7C37FD1920CA436200046540 /* Capital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				7C37FD0220CA3BB500046540 /* AppDelegate.swift */,
 				7C37FD0420CA3BB500046540 /* ViewController.swift */,
+				7C37FD1920CA436200046540 /* Capital.swift */,
 				7C37FD0620CA3BB500046540 /* Main.storyboard */,
 				7C37FD0920CA3BB600046540 /* Assets.xcassets */,
 				7C37FD0B20CA3BB600046540 /* LaunchScreen.storyboard */,
@@ -154,6 +157,7 @@
 			files = (
 				7C37FD0520CA3BB500046540 /* ViewController.swift in Sources */,
 				7C37FD0320CA3BB500046540 /* AppDelegate.swift in Sources */,
+				7C37FD1A20CA436200046540 /* Capital.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
