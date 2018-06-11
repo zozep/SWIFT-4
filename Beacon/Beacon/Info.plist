@@ -43,5 +43,7 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>need you location when the app is running for it to work</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>need your location always in use plz</string>
 </dict>
 </plist>
