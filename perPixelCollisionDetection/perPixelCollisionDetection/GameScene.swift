@@ -53,8 +53,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     }
     
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    func didBegin(_ contact: SKPhysicsContact) {
+        let explosion = SKEmitterNode(fileNamed: "explosion")!
+        explosion.position = player.position
+        addChild(explosion)
+        
+        player.removeFromParent()
+        
+        isGameOver = true
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
