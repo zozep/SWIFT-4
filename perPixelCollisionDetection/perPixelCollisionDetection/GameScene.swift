@@ -57,6 +57,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     }
     
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        var location = touch.location(in: self)
+        
+        if location.y < 100 {
+            location.y = 100
+        } else if location.y > 668 {
+            location.y = 668
+        }
+        
+        player.position = location
+    }
+    
     @objc func createEnemy() {
         possibleEnemies = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleEnemies) as! [String]
         let randomDistribution = GKRandomDistribution(lowestValue: 50, highestValue: 736)
@@ -73,5 +86,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.physicsBody?.angularDamping = 0
     }
 
+    override func update(_ currentTime: TimeInterval) {
+        for node in children {
+            if node.position.x < -300 {
+                node.removeFromParent()
+            }
+        }
+        
+        if !isGameOver {
+            score += 1
+        }
+    }
     
 }
