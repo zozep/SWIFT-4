@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SwiftExtension2.xcodeproj">
+      location = "self:/Users/Joseph/Projects/iOS/SWIFT-4/SwiftExtension2/PhotoSharing.xcodeproj">
    </FileRef>
 </Workspace>

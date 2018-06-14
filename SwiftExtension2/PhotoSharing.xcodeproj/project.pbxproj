@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C99940720D24672000C6283 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C99940620D24672000C6283 /* Default-568h@2x.png */; };
 		7CE014B620D1B5060050814B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE014B520D1B5060050814B /* AppDelegate.swift */; };
 		7CE014B820D1B5060050814B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE014B720D1B5060050814B /* ViewController.swift */; };
 		7CE014BB20D1B5060050814B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE014B920D1B5060050814B /* Main.storyboard */; };
@@ -15,7 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7CE014B220D1B5060050814B /* SwiftExtension2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftExtension2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C99940620D24672000C6283 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7CE014B220D1B5060050814B /* PhotoSharing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoSharing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE014B520D1B5060050814B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CE014B720D1B5060050814B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7CE014BA20D1B5060050814B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,6 +40,7 @@
 		7CE014A920D1B5060050814B = {
 			isa = PBXGroup;
 			children = (
+				7C99940620D24672000C6283 /* Default-568h@2x.png */,
 				7CE014B420D1B5060050814B /* SwiftExtension2 */,
 				7CE014B320D1B5060050814B /* Products */,
 			);
@@ -46,7 +49,7 @@
 		7CE014B320D1B5060050814B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7CE014B220D1B5060050814B /* SwiftExtension2.app */,
+				7CE014B220D1B5060050814B /* PhotoSharing.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7CE014B120D1B5060050814B /* SwiftExtension2 */ = {
+		7CE014B120D1B5060050814B /* PhotoSharing */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7CE014C420D1B5080050814B /* Build configuration list for PBXNativeTarget "SwiftExtension2" */;
+			buildConfigurationList = 7CE014C420D1B5080050814B /* Build configuration list for PBXNativeTarget "PhotoSharing" */;
 			buildPhases = (
 				7CE014AE20D1B5060050814B /* Sources */,
 				7CE014AF20D1B5060050814B /* Frameworks */,
@@ -79,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = SwiftExtension2;
+			name = PhotoSharing;
 			productName = SwiftExtension2;
-			productReference = 7CE014B220D1B5060050814B /* SwiftExtension2.app */;
+			productReference = 7CE014B220D1B5060050814B /* PhotoSharing.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7CE014AD20D1B5060050814B /* Build configuration list for PBXProject "SwiftExtension2" */;
+			buildConfigurationList = 7CE014AD20D1B5060050814B /* Build configuration list for PBXProject "PhotoSharing" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7CE014B120D1B5060050814B /* SwiftExtension2 */,
+				7CE014B120D1B5060050814B /* PhotoSharing */,
 			);
 		};
 /* End PBXProject section */
@@ -123,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CE014C020D1B5080050814B /* LaunchScreen.storyboard in Resources */,
+				7C99940720D24672000C6283 /* Default-568h@2x.png in Resources */,
 				7CE014BD20D1B5080050814B /* Assets.xcassets in Resources */,
 				7CE014BB20D1B5060050814B /* Main.storyboard in Resources */,
 			);
@@ -315,7 +319,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7CE014AD20D1B5060050814B /* Build configuration list for PBXProject "SwiftExtension2" */ = {
+		7CE014AD20D1B5060050814B /* Build configuration list for PBXProject "PhotoSharing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CE014C220D1B5080050814B /* Debug */,
@@ -324,7 +328,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7CE014C420D1B5080050814B /* Build configuration list for PBXNativeTarget "SwiftExtension2" */ = {
+		7CE014C420D1B5080050814B /* Build configuration list for PBXNativeTarget "PhotoSharing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CE014C520D1B5080050814B /* Debug */,
