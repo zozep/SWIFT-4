@@ -41,7 +41,7 @@
 			isa = PBXGroup;
 			children = (
 				7C99940620D24672000C6283 /* Default-568h@2x.png */,
-				7CE014B420D1B5060050814B /* SwiftExtension2 */,
+				7CE014B420D1B5060050814B /* PhotoSharing */,
 				7CE014B320D1B5060050814B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,7 +54,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7CE014B420D1B5060050814B /* SwiftExtension2 */ = {
+		7CE014B420D1B5060050814B /* PhotoSharing */ = {
 			isa = PBXGroup;
 			children = (
 				7CE014B520D1B5060050814B /* AppDelegate.swift */,
@@ -64,7 +64,7 @@
 				7CE014BE20D1B5080050814B /* LaunchScreen.storyboard */,
 				7CE014C120D1B5080050814B /* Info.plist */,
 			);
-			path = SwiftExtension2;
+			path = PhotoSharing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
