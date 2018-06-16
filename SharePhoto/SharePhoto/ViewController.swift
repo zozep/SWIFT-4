@@ -11,7 +11,6 @@ import MultipeerConnectivity
 
 
 class ViewController: UICollectionViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, MCSessionDelegate, MCBrowserViewControllerDelegate {
-
     var images = [UIImage]()
     
     var peerID: MCPeerID!
@@ -30,33 +29,51 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         mcSession.delegate = self
     }
     
-    func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        <#code#>
+    //MARK: MCsession delegate methods
+    func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
+        print("didReceive stream()")
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        <#code#>
+        if let image = UIImage(data: data) {
+            DispatchQueue.main.async { [unowned self] in
+                self.images.insert(image, at: 0)
+                self.collectionView?.reloadData()
+            }
+        }
     }
-    
-    func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
-        <#code#>
-    }
-    
+
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {
-        <#code#>
+        print("didStartReceivingREsourceWithName()")
     }
     
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
-        <#code#>
+        print("didFinishReceivingResourceWithName")
     }
     
+    func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
+        switch state {
+        case MCSessionState.connected:
+            print("Connected: \(peerID.displayName)")
+            
+        case MCSessionState.connecting:
+            print("Connecting: \(peerID.displayName)")
+            
+        case MCSessionState.notConnected:
+            print("Not Connected: \(peerID.displayName)")
+        }
+    }
+    
+    
+    //MARK: MCBrowserVC delegate methods
     func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
-        <#code#>
+        dismiss(animated: true)
     }
     
     func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
-        <#code#>
+        dismiss(animated: true)
     }
+
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
