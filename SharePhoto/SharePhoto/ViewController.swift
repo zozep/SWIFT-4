@@ -16,7 +16,7 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
     var peerID: MCPeerID!
     var mcSession: MCSession!
     var mcAdvertiserAssistant: MCAdvertiserAssistant!
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,13 +88,8 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         return cell
     }
     
-    @objc func importPicture() {
-        let picker = UIImagePickerController()
-        picker.allowsEditing = true
-        picker.delegate = self
-        present(picker, animated: true)
-    }
     
+    //MARK: imagePicker delegate method
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         guard let image = info[UIImagePickerControllerEditedImage] as? UIImage else { return }
         
@@ -102,6 +97,34 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         
         images.insert(image, at: 0)
         collectionView?.reloadData()
+        
+        //Check if there are any peers to send to.
+        if mcSession.connectedPeers.count > 0 {
+            //Convert the new image to a Data object.
+            if let imageData = UIImagePNGRepresentation(image) {
+                //Send it to all peers, ensuring it gets delivered.
+                do {
+                    //try running this code, and let me know if it fails, not try! or try? because inside a do/catch block
+                    try mcSession.send(imageData, toPeers: mcSession.connectedPeers, with: .reliable)
+                } catch {
+                    //Show an error message if there's a problem.
+
+                    let ac = UIAlertController(title: "Send error", message: error.localizedDescription, preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "OK", style: .default))
+                    present(ac, animated: true)
+                }
+            }
+        }
+
+    }
+    
+    
+    //MARK: custom fx objC
+    @objc func importPicture() {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
     }
     
     @objc func showConnectionPrompt() {
