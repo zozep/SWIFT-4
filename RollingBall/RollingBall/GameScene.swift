@@ -8,7 +8,6 @@
 
 import CoreMotion
 import SpriteKit
-import GameplayKit
 
 enum CollisionTypes: UInt32 {
     case player = 1
@@ -53,9 +52,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.horizontalAlignmentMode = .left
         scoreLabel.position = CGPoint(x: 16, y: 16)
         addChild(scoreLabel)
+        
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
-
+        
         loadLevel()
+        createPlayer()
+        
+        motionManager = CMMotionManager()
+        motionManager.startAccelerometerUpdates()
+        
     }
     
     //MARK: SpriteKit protocol
