@@ -36,8 +36,13 @@ class GameScene: SKScene {
                         let position = CGPoint(x: (64 * column) + 32, y: (64 * row) + 32)
                         
                         if letter == "x" {
-                            // load wall
-                        } else if letter == "v"  {
+                            let node = SKSpriteNode(imageNamed: "block")
+                            node.position = position
+                            
+                            node.physicsBody = SKPhysicsBody(rectangleOf: node.size)
+                            node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
+                            node.physicsBody?.isDynamic = false
+                            addChild(node)                        } else if letter == "v"  {
                             // load vortex
                         } else if letter == "s"  {
                             // load star
