@@ -43,8 +43,17 @@ class GameScene: SKScene {
                             node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
                             node.physicsBody?.isDynamic = false
                             addChild(node)                        } else if letter == "v"  {
-                            // load vortex
-                        } else if letter == "s"  {
+                            let node = SKSpriteNode(imageNamed: "vortex")
+                            node.name = "vortex"
+                            node.position = position
+                            node.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat.pi, duration: 1)))
+                            node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
+                            node.physicsBody?.isDynamic = false
+                            
+                            node.physicsBody?.categoryBitMask = CollisionTypes.vortex.rawValue
+                            node.physicsBody?.contactTestBitMask = CollisionTypes.player.rawValue
+                            node.physicsBody?.collisionBitMask = 0
+                            addChild(node)                        } else if letter == "s"  {
                             // load star
                         } else if letter == "f"  {
                             // load finish
