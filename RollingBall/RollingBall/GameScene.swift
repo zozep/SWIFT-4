@@ -21,6 +21,7 @@ enum CollisionTypes: UInt32 {
 class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
+        loadLevel()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -70,7 +71,17 @@ class GameScene: SKScene {
                             addChild(node)
                             
                         } else if letter == "f"  {
-                            // load finish
+                            let node = SKSpriteNode(imageNamed: "finish")
+                            node.name = "finish"
+                            node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
+                            node.physicsBody?.isDynamic = false
+                            
+                            node.physicsBody?.categoryBitMask = CollisionTypes.finish.rawValue
+                            node.physicsBody?.contactTestBitMask = CollisionTypes.player.rawValue
+                            node.physicsBody?.collisionBitMask = 0
+                            node.position = position
+                            addChild(node)
+                            
                         }
                     }
                 }
