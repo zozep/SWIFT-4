@@ -89,10 +89,10 @@
 				7C2658E720D63A700012F071 /* GameScene.swift */,
 				7C2658E920D63A700012F071 /* GameViewController.swift */,
 				7C2658EB20D63A700012F071 /* Main.storyboard */,
-				7C2658F920D7968D0012F071 /* Content */,
 				7C2658EE20D63A720012F071 /* Assets.xcassets */,
 				7C2658F020D63A720012F071 /* LaunchScreen.storyboard */,
 				7C2658F320D63A720012F071 /* Info.plist */,
+				7C2658F920D7968D0012F071 /* Content */,
 			);
 			path = RollingBall;
 			sourceTree = "<group>";
