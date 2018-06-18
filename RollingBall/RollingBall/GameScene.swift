@@ -24,7 +24,14 @@ class GameScene: SKScene {
     var player: SKSpriteNode!
     var lastTouchPosition: CGPoint?
     var motionManager: CMMotionManager!
+
+    var scoreLabel: SKLabelNode!
     
+    var score = 0 {
+        didSet {
+            scoreLabel.text = "Score: \(score)"
+        }
+    }
     
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background.jpg")
@@ -36,6 +43,13 @@ class GameScene: SKScene {
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         motionManager = CMMotionManager()
         motionManager.startAccelerometerUpdates()
+
+        scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+        scoreLabel.text = "Score: 0"
+        scoreLabel.horizontalAlignmentMode = .left
+        scoreLabel.position = CGPoint(x: 16, y: 16)
+        addChild(scoreLabel)
+        physicsWorld.contactDelegate = self
 
         loadLevel()
     }
@@ -74,6 +88,14 @@ class GameScene: SKScene {
             physicsWorld.gravity = CGVector(dx: accelerometerData.acceleration.y * -50, dy: accelerometerData.acceleration.x * 50)
         }
         #endif
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        if contact.bodyA.node == player {
+            playerCollided(with: contact.bodyB.node!)
+        } else if contact.bodyB.node == player {
+            playerCollided(with: contact.bodyA.node!)
+        }
     }
     
     
