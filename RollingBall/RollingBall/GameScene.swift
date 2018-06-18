@@ -33,6 +33,10 @@ class GameScene: SKScene {
         }
     }
     
+    var isGameOver = false
+
+    
+    
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background.jpg")
         background.position = CGPoint(x: 512, y: 384)
@@ -78,6 +82,7 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        guard isGameOver == false else { return }
         #if targetEnvironment(simulator)
         if let currentTouch = lastTouchPosition {
             let diff = CGPoint(x: currentTouch.x - player.position.x, y: currentTouch.y - player.position.y)
@@ -90,6 +95,8 @@ class GameScene: SKScene {
         #endif
     }
     
+    
+    //MARK: Custom Fx
     func didBegin(_ contact: SKPhysicsContact) {
         if contact.bodyA.node == player {
             playerCollided(with: contact.bodyB.node!)
@@ -98,8 +105,6 @@ class GameScene: SKScene {
         }
     }
     
-    
-    //MARK: Custom Fx
     func loadLevel() {
         if let levelPath = Bundle.main.path(forResource: "level1", ofType: "txt") {
             if let levelString = try? String(contentsOfFile: levelPath) {
@@ -174,4 +179,9 @@ class GameScene: SKScene {
         player.physicsBody?.collisionBitMask = CollisionTypes.wall.rawValue
         addChild(player)
     }
+    
+    func playerCollided(with node: SKNode) {
+        print("playerCollided()")
+    }
+
 }
