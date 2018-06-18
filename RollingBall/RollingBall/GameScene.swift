@@ -19,7 +19,7 @@ enum CollisionTypes: UInt32 {
 }
 
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var player: SKSpriteNode!
     var lastTouchPosition: CGPoint?
