@@ -42,7 +42,9 @@ class GameScene: SKScene {
                             node.physicsBody = SKPhysicsBody(rectangleOf: node.size)
                             node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
                             node.physicsBody?.isDynamic = false
-                            addChild(node)                        } else if letter == "v"  {
+                            addChild(node)
+                            
+                        } else if letter == "v"  {
                             let node = SKSpriteNode(imageNamed: "vortex")
                             node.name = "vortex"
                             node.position = position
@@ -53,8 +55,20 @@ class GameScene: SKScene {
                             node.physicsBody?.categoryBitMask = CollisionTypes.vortex.rawValue
                             node.physicsBody?.contactTestBitMask = CollisionTypes.player.rawValue
                             node.physicsBody?.collisionBitMask = 0
-                            addChild(node)                        } else if letter == "s"  {
-                            // load star
+                            addChild(node)
+                            
+                        } else if letter == "s"  {
+                            let node = SKSpriteNode(imageNamed: "star")
+                            node.name = "star"
+                            node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
+                            node.physicsBody?.isDynamic = false
+                            
+                            node.physicsBody?.categoryBitMask = CollisionTypes.star.rawValue
+                            node.physicsBody?.contactTestBitMask = CollisionTypes.player.rawValue
+                            node.physicsBody?.collisionBitMask = 0
+                            node.position = position
+                            addChild(node)
+                            
                         } else if letter == "f"  {
                             // load finish
                         }
