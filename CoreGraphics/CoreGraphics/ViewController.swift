@@ -16,12 +16,24 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        drawRectangle()
+
     }
 
     @IBAction func redrawTapped(_ sender: Any) {
-        print("redrawTappd()")
-    }
+        currentDrawType += 1
+        
+        if currentDrawType > 5 {
+            currentDrawType = 0
+        }
+        
+        switch currentDrawType {
+        case 0:
+            drawRectangle()
+            
+        default:
+            break
+        }    }
     
     func drawRectangle() {
         print("drawRectangle()")
