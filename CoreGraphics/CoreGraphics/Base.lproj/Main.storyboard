@@ -23,9 +23,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NkC-yB-AwI">
-                                <rect key="frame" x="164" y="608" width="46" height="30"/>
+                                <rect key="frame" x="161" y="608" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Redraw"/>
                                 <connections>
                                     <action selector="redrawTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dfy-uy-atC"/>
                                 </connections>
