@@ -145,27 +145,27 @@ class ViewController: UIViewController {
     }
     
     func drawImagesAndText() {
-        // 1
+        //Create a renderer at the correct size.
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
         
         let img = renderer.image { ctx in
-            // 2
+            //Create a renderer at the correct size.
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.alignment = .center
             
-            // 3
+            //Create a renderer at the correct size.
             let attrs = [NSAttributedStringKey.font: UIFont(name: "HelveticaNeue-Thin", size: 36)!, NSAttributedStringKey.paragraphStyle: paragraphStyle]
             
-            // 4
+            //Draw a string to the screen using the attributes dictionary.
             let string = "The best-laid schemes o'\nmice an' men gang aft agley"
             string.draw(with: CGRect(x: 32, y: 32, width: 448, height: 448), options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
             
-            // 5
+            //Load an image from the project and draw it to the context.
             let mouse = UIImage(named: "mouse")
             mouse?.draw(at: CGPoint(x: 300, y: 150))
         }
         
-        // 6
+        //Update the image view with the finished result.
         imageView.image = img
     }
 }
