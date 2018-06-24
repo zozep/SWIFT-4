@@ -12,6 +12,7 @@
 		7CB5B18D20E042E100D1A4DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB5B18B20E042E100D1A4DA /* Main.storyboard */; };
 		7CB5B18F20E042E200D1A4DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB5B18E20E042E200D1A4DA /* Assets.xcassets */; };
 		7CB5B19220E042E200D1A4DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB5B19020E042E200D1A4DA /* LaunchScreen.storyboard */; };
+		7CB5B19B20E044E800D1A4DA /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB5B19A20E044E800D1A4DA /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		7CB5B18E20E042E200D1A4DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CB5B19120E042E200D1A4DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CB5B19320E042E200D1A4DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CB5B19A20E044E800D1A4DA /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,23 @@
 		7CB5B18620E042E100D1A4DA /* AZChat */ = {
 			isa = PBXGroup;
 			children = (
+				7CB5B19920E044CF00D1A4DA /* Controller */,
 				7CB5B18720E042E100D1A4DA /* AppDelegate.swift */,
-				7CB5B18920E042E100D1A4DA /* ViewController.swift */,
 				7CB5B18B20E042E100D1A4DA /* Main.storyboard */,
 				7CB5B18E20E042E200D1A4DA /* Assets.xcassets */,
 				7CB5B19020E042E200D1A4DA /* LaunchScreen.storyboard */,
 				7CB5B19320E042E200D1A4DA /* Info.plist */,
 			);
 			path = AZChat;
+			sourceTree = "<group>";
+		};
+		7CB5B19920E044CF00D1A4DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7CB5B19A20E044E800D1A4DA /* LoginController.swift */,
+				7CB5B18920E042E100D1A4DA /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CB5B18A20E042E100D1A4DA /* ViewController.swift in Sources */,
+				7CB5B19B20E044E800D1A4DA /* LoginController.swift in Sources */,
 				7CB5B18820E042E100D1A4DA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
