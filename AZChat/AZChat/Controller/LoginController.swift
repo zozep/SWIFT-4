@@ -10,10 +10,21 @@ import UIKit
 
 class LoginController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(r: 61, g: 91, b: 151)
+        
+        let loginInputView = UIView()
+        loginInputView.backgroundColor = UIColor.white
+        loginInputView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loginInputView)
+        
+        loginInputView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loginInputView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        loginInputView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
+        loginInputView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
     
     func preferredStatusBarStyle() -> UIStatusBarStyle {
