@@ -43,8 +43,9 @@ class ViewController: UIViewController {
     }
     
     func drawRectangle() {
+        let size = CGSizeFromString(<#T##string: String##String#>)
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
-
+        
         let img = renderer.image { ctx in
             let rectangle = CGRect(x: 0, y: 0, width: 512, height: 512)
             
@@ -61,7 +62,7 @@ class ViewController: UIViewController {
     
     func drawCircle() {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
-        
+
         let img = renderer.image { ctx in
             let rectangle = CGRect(x: 0, y: 0, width: 512, height: 512)
             
@@ -78,7 +79,7 @@ class ViewController: UIViewController {
     
     func drawCheckerboard() {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
-        
+
         let img = renderer.image { ctx in
             ctx.cgContext.setFillColor(UIColor.black.cgColor)
             
@@ -96,7 +97,7 @@ class ViewController: UIViewController {
     
     func drawRotatedSquares() {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
-        
+
         let img = renderer.image { ctx in
             ctx.cgContext.translateBy(x: 256, y: 256)
             
@@ -117,7 +118,7 @@ class ViewController: UIViewController {
     
     func drawLines() {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
-        
+
         let img = renderer.image { ctx in
             ctx.cgContext.translateBy(x: 256, y: 256)
             
@@ -147,7 +148,7 @@ class ViewController: UIViewController {
     func drawImagesAndText() {
         //Create a renderer at the correct size.
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
-        
+
         let img = renderer.image { ctx in
             //Create a renderer at the correct size.
             let paragraphStyle = NSMutableParagraphStyle()
