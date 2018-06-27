@@ -28,6 +28,21 @@ class LoginController: UIViewController {
         return button
     }()
     
+    let nameTextField: UITextField = {
+        let textfield = UITextField()
+        textfield.placeholder = "Name"
+        textfield.translatesAutoresizingMaskIntoConstraints = false
+        
+        return textfield
+    }()
+    
+    let nameSeparatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(r: 220, g: 220, b: 200)
+        view.translatesAutoresizingMaskIntoConstraints =  false
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,6 +59,21 @@ class LoginController: UIViewController {
         loginInputView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         loginInputView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
         loginInputView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        loginInputView.addSubview(nameTextField)
+        nameTextField.leftAnchor.constraint(equalTo: loginInputView.leftAnchor, constant: 12).isActive = true
+        nameTextField.topAnchor.constraint(equalTo: loginInputView.topAnchor).isActive = true
+        nameTextField.widthAnchor.constraint(equalTo: loginInputView.widthAnchor).isActive = true
+        nameTextField.heightAnchor.constraint(equalTo: loginInputView.heightAnchor, multiplier: 1/3).isActive = true
+        
+        loginInputView.addSubview(nameTextField)
+        loginInputView.addSubview(nameSeparatorView)
+       
+        nameSeparatorView.leftAnchor.constraint(equalTo: loginInputView.leftAnchor).isActive = true
+        nameSeparatorView.topAnchor.constraint(equalTo: nameTextField.bottomAnchor).isActive = true
+        nameSeparatorView.widthAnchor.constraint(equalTo: nameTextField.widthAnchor).isActive = true
+        nameSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        
     }
     
     func setuploginRegButton() {
