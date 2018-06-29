@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74A9AFE2C5BC99980661CF9D /* Pods_AZChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166042B5ECAE6D979869B5C1 /* Pods_AZChat.framework */; };
 		7CB5B18820E042E100D1A4DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB5B18720E042E100D1A4DA /* AppDelegate.swift */; };
 		7CB5B18A20E042E100D1A4DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB5B18920E042E100D1A4DA /* ViewController.swift */; };
 		7CB5B18D20E042E100D1A4DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB5B18B20E042E100D1A4DA /* Main.storyboard */; };
 		7CB5B18F20E042E200D1A4DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB5B18E20E042E200D1A4DA /* Assets.xcassets */; };
 		7CB5B19220E042E200D1A4DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB5B19020E042E200D1A4DA /* LaunchScreen.storyboard */; };
 		7CB5B19B20E044E800D1A4DA /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB5B19A20E044E800D1A4DA /* LoginController.swift */; };
+		7CD9055920E5E6E400B78E93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CD9055820E5E6E400B78E93 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		166042B5ECAE6D979869B5C1 /* Pods_AZChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AZChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		17DC4F6F1447EFBA8E11CDD2 /* Pods-AZChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AZChat/Pods-AZChat.debug.xcconfig"; sourceTree = "<group>"; };
 		7CB5B18420E042E100D1A4DA /* AZChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AZChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB5B18720E042E100D1A4DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CB5B18920E042E100D1A4DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +28,8 @@
 		7CB5B19120E042E200D1A4DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CB5B19320E042E200D1A4DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CB5B19A20E044E800D1A4DA /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		7CD9055820E5E6E400B78E93 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9BCC45D7E28AD42F53201E7E /* Pods-AZChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AZChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-AZChat/Pods-AZChat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74A9AFE2C5BC99980661CF9D /* Pods_AZChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BB6124222BE5EB5DEB2353A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				166042B5ECAE6D979869B5C1 /* Pods_AZChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7CB5B17B20E042E100D1A4DA = {
 			isa = PBXGroup;
 			children = (
 				7CB5B18620E042E100D1A4DA /* AZChat */,
 				7CB5B18520E042E100D1A4DA /* Products */,
+				BDA5CF22038928B948CAAD99 /* Pods */,
+				5BB6124222BE5EB5DEB2353A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +79,7 @@
 				7CB5B18E20E042E200D1A4DA /* Assets.xcassets */,
 				7CB5B19020E042E200D1A4DA /* LaunchScreen.storyboard */,
 				7CB5B19320E042E200D1A4DA /* Info.plist */,
+				7CD9055820E5E6E400B78E93 /* GoogleService-Info.plist */,
 			);
 			path = AZChat;
 			sourceTree = "<group>";
@@ -75,6 +93,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		BDA5CF22038928B948CAAD99 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				17DC4F6F1447EFBA8E11CDD2 /* Pods-AZChat.debug.xcconfig */,
+				9BCC45D7E28AD42F53201E7E /* Pods-AZChat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -82,9 +109,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7CB5B19620E042E200D1A4DA /* Build configuration list for PBXNativeTarget "AZChat" */;
 			buildPhases = (
+				64D26A726C5559367435B639 /* [CP] Check Pods Manifest.lock */,
 				7CB5B18020E042E100D1A4DA /* Sources */,
 				7CB5B18120E042E100D1A4DA /* Frameworks */,
 				7CB5B18220E042E100D1A4DA /* Resources */,
+				707907864F612B73158796C0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -134,12 +163,54 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CB5B19220E042E200D1A4DA /* LaunchScreen.storyboard in Resources */,
+				7CD9055920E5E6E400B78E93 /* GoogleService-Info.plist in Resources */,
 				7CB5B18F20E042E200D1A4DA /* Assets.xcassets in Resources */,
 				7CB5B18D20E042E100D1A4DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		64D26A726C5559367435B639 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AZChat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		707907864F612B73158796C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AZChat/Pods-AZChat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AZChat/Pods-AZChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7CB5B18020E042E100D1A4DA /* Sources */ = {
@@ -290,6 +361,7 @@
 		};
 		7CB5B19720E042E200D1A4DA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17DC4F6F1447EFBA8E11CDD2 /* Pods-AZChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -308,6 +380,7 @@
 		};
 		7CB5B19820E042E200D1A4DA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BCC45D7E28AD42F53201E7E /* Pods-AZChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
