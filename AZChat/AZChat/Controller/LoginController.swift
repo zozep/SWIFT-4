@@ -64,17 +64,34 @@ class LoginController: UIViewController {
         return pwTextfield
     }()
     
+    let profileImageView: UIView = {
+       let imageView = UIImageView()
+        imageView.image = UIImage(named: "orgami50")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(r: 61, g: 91, b: 151)
+        view.backgroundColor = UIColor(r: 100, g: 200, b: 170)
         view.addSubview(loginInputView)
         view.addSubview(loginRegisterButton)
+        view.addSubview(profileImageView)
         
         setupLoginInputView()
         setuploginRegButton()
+        setupProfileImageView()
     }
     
+    func setupProfileImageView() {
+        profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        profileImageView.bottomAnchor.constraint(equalTo: loginInputView.topAnchor, constant: -120).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+
     func setupLoginInputView() {
         
         loginInputView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -113,7 +130,6 @@ class LoginController: UIViewController {
         passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor).isActive = true
         passwordTextField.widthAnchor.constraint(equalTo: loginInputView.widthAnchor).isActive = true
         passwordTextField.heightAnchor.constraint(equalTo: loginInputView.heightAnchor, multiplier: 1/3).isActive = true
-        
 
     }
     
