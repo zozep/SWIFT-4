@@ -17,8 +17,9 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         
-        ref = Database.database().reference()
-
+//        ref = Database.database().reference()
+//        ref.updateChildValues(["someValue": 123])
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogOut))
 
     }

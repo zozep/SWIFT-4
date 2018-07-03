@@ -21,14 +21,21 @@ class LoginController: UIViewController {
         return view
     }()
     
-    let loginRegisterButton: UIButton = {
+    lazy var loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
         button.setTitle("Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        button.addTarget(self, action: #selector(register), for: .touchUpInside)
         return button
     }()
+    
+    @objc func register() {
+        //TODO: resgister
+        print("running register()")
+    }
     
     let nameTextField: UITextField = {
         let textField = UITextField()
