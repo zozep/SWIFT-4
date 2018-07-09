@@ -24,11 +24,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpZ-Yp-GeA">
+                                <rect key="frame" x="136" y="339" width="100" height="44"/>
+                                <state key="normal" title="authenticate"/>
+                                <connections>
+                                    <action selector="authenticateTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sXi-Er-JwU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wpZ-Yp-GeA" secondAttribute="bottom" constant="284" id="JsS-qJ-RhD"/>
+                            <constraint firstItem="wpZ-Yp-GeA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="275" id="OYh-L7-h39"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wpZ-Yp-GeA" secondAttribute="trailing" constant="139" id="U46-Re-MjM"/>
                             <constraint firstItem="cFQ-eE-sX0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aKp-iK-apn"/>
                             <constraint firstItem="cFQ-eE-sX0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cid-n7-eQ4"/>
+                            <constraint firstItem="wpZ-Yp-GeA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="136" id="e2X-La-GIl"/>
                             <constraint firstItem="cFQ-eE-sX0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="kl3-uq-K16"/>
                             <constraint firstAttribute="trailing" secondItem="cFQ-eE-sX0" secondAttribute="trailing" id="q7R-Bk-fRD"/>
                         </constraints>
