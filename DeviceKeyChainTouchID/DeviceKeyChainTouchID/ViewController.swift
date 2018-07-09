@@ -21,6 +21,9 @@ class ViewController: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
         
         title = "Nothing to see here"
+        
+        notificationCenter.addObserver(self, selector: #selector(saveSecretMessage), name: Notification.Name.UIApplicationWillResignActive, object: nil)
+
 
     }
     
@@ -43,6 +46,7 @@ class ViewController: UIViewController {
     }
     @IBAction func authenticateTapped(_ sender: Any) {
         print("authenticateTapped()")
+        unlockSecretMessage()
     }
     
     func unlockSecretMessage() {
@@ -51,6 +55,16 @@ class ViewController: UIViewController {
         
         if let text = KeychainWrapper.standard.string(forKey: "SecretMessage") {
             secret.text = text
+        }
+    }
+    
+    //to tell our text view that we're finished editing it, so the keyboard can be hidden
+    @objc func saveSecretMessage() {
+        if !secret.isHidden {
+            _ = KeychainWrapper.standard.set(secret.text, forKey: "SecretMessage")
+            secret.resignFirstResponder()
+            secret.isHidden = true
+            title = "Nothing to see here"
         }
     }
 }
