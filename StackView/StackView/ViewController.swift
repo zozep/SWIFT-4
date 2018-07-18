@@ -45,6 +45,17 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
         webView.addGestureRecognizer(recognizer)
     }
 
+    func selectWebView(_ webView: UIWebView) {
+        for view in stackView.arrangedSubviews {
+            view.layer.borderWidth = 0
+        }
+        
+        activeWebView = webView
+        webView.layer.borderWidth = 3
+        updateUI(for: webView)
+        
+    }
+    
     @objc func deleteWebView() {
         // safely unwrap our webview
         if let webView = activeWebView {
@@ -76,15 +87,6 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
         }
     }
     
-    func selectWebView(_ webView: UIWebView) {
-        for view in stackView.arrangedSubviews {
-            view.layer.borderWidth = 0
-        }
-        
-        activeWebView = webView
-        webView.layer.borderWidth = 3
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let webView = activeWebView, let address = addressBar.text {
             if let url = URL(string: address) {
@@ -102,8 +104,30 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
         }
     }
     
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        if webView == activeWebView {
+            updateUI(for: webView)
+        }
+    }
+    
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
+    }
+    
+    
+    //multitasking
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if traitCollection.horizontalSizeClass == .compact {
+            stackView.axis = .vertical
+        } else {
+            stackView.axis = .horizontal
+        }
+    }
+    
+    //updates the navigation bar to show the page title from the active web view when it changes
+    func updateUI(for webView: UIWebView) {
+        title = webView.stringByEvaluatingJavaScript(from: "document.title")
+        addressBar.text = webView.request?.url?.absoluteString ?? ""
     }
 
 }
